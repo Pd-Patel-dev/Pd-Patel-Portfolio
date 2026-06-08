@@ -188,13 +188,17 @@
 }
 
 .logo-badge {
-  background: rgba(255, 255, 255, 0.06) !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  background-image: none !important;
   backdrop-filter: blur(24px) saturate(180%);
   -webkit-backdrop-filter: blur(24px) saturate(180%);
   border: 1px solid var(--glass-border) !important;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
   border-radius: 14px !important;
-  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+  color: var(--accent-violet-light) !important;
+  -webkit-text-fill-color: currentColor !important;
 }
 
 .logo-badge::before,
