@@ -32,8 +32,8 @@
       html: '  <span class="json-key">"education"</span>: <span class="json-str">"UIC CS, May 2027"</span>,',
     },
     {
-      plain: '  "gpa": 3.68,',
-      html: '  <span class="json-key">"gpa"</span>: <span class="json-num">3.68</span>,',
+      plain: '  "gpa": 3.78,',
+      html: '  <span class="json-key">"gpa"</span>: <span class="json-num">3.78</span>,',
     },
     {
       plain: '  "apps_shipped": 3,',
