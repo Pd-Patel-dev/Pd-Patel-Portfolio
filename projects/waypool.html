@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waypool | Pradhuman Patel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/glass.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/effects.css">
+  <link rel="stylesheet" href="../css/project-detail.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="mesh-bg" aria-hidden="true">
+    <div class="mesh-blob mesh-blob-1"></div>
+    <div class="mesh-blob mesh-blob-2"></div>
+    <div class="mesh-blob mesh-blob-3"></div>
+  </div>
+  <canvas id="grid-canvas" aria-hidden="true"></canvas>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="../index.html" class="logo-badge neo" aria-label="Home">PP</a>
+      <a href="../index.html#projects" class="back-link"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> All Projects</a>
+    </div>
+    <a href="https://github.com/Pd-Patel-dev" class="btn-glass" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+  </header>
+
+  <main class="page-wrap detail-page" id="main">
+    <header class="detail-hero">
+      <div class="detail-hero-glow" aria-hidden="true"></div>
+      <figure class="detail-hero-preview">
+        <img
+          src="../assets/projects/waypool.jpg"
+          srcset="../assets/projects/waypool-thumb.png 640w, ../assets/projects/waypool.jpg 1200w"
+          sizes="(max-width: 768px) 100vw, min(1100px, 92vw)"
+          alt="Waypool mobile app preview"
+          width="1200"
+          height="750"
+          loading="eager"
+          decoding="async"
+        >
+      </figure>
+      <span class="detail-badge badge-mobile">Mobile Platform</span>
+      <div class="detail-meta-row">
+        <span class="detail-meta-pill"><i class="fa-solid fa-calendar" aria-hidden="true"></i> 2024</span>
+        <span class="detail-meta-pill"><i class="fa-solid fa-user" aria-hidden="true"></i> Team · Full-Stack</span>
+        <span class="detail-meta-pill"><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> React Native · WebSocket · Stripe</span>
+      </div>
+      <h1>Waypool</h1>
+      <p class="lead">A three-app ride-sharing platform with sub-100ms real-time events, live GPS tracking, and Stripe Connect payouts — built for 500+ concurrent riders and drivers during peak hours.</p>
+      <div class="detail-actions">
+        <a href="https://github.com/Pd-Patel-dev" class="btn-primary" target="_blank" rel="noopener noreferrer">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        <a href="../index.html#contact" class="btn-glass">Discuss this project</a>
+      </div>
+      <div class="detail-quick-stats">
+        <div class="card-scene quick-stat detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <div class="value" data-count="500" data-suffix="+">0+</div>
+            <div class="label">Concurrent users</div>
+          </div></div>
+        </div>
+        <div class="card-scene quick-stat detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <div class="value" data-prefix="&lt;" data-count="100" data-suffix="ms">&lt;100ms</div>
+            <div class="label">Event propagation</div>
+          </div></div>
+        </div>
+        <div class="card-scene quick-stat detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <div class="value" data-count="3">0</div>
+            <div class="label">Native apps</div>
+          </div></div>
+        </div>
+        <div class="card-scene quick-stat detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <div class="value" data-count="5" data-suffix=" hrs">0 hrs</div>
+            <div class="label">Saved per driver / week</div>
+          </div></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="detail-body">
+      <div class="detail-main">
+        <nav class="detail-tabs glass" role="tablist" aria-label="Project sections">
+          <button type="button" class="detail-tab active" role="tab" aria-selected="true" data-panel="panel-overview"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>Overview</button>
+          <button type="button" class="detail-tab" role="tab" aria-selected="false" data-panel="panel-arch"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i>Architecture</button>
+          <button type="button" class="detail-tab" role="tab" aria-selected="false" data-panel="panel-platform"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i>Platform</button>
+          <button type="button" class="detail-tab" role="tab" aria-selected="false" data-panel="panel-outcomes"><i class="fa-solid fa-chart-line" aria-hidden="true"></i>Outcomes</button>
+        </nav>
+
+        <div id="panel-overview" class="detail-panel active" role="tabpanel">
+          <div class="ps-grid detail-reveal">
+            <div class="ps-block problem glass">
+              <h3><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Problem</h3>
+              <p>Carpool and local ride operators rely on phone calls and manual dispatch — riders wait without visibility, drivers chase payments, and admins cannot see fleet status in real time.</p>
+            </div>
+            <div class="ps-block solution glass">
+              <h3><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Solution</h3>
+              <p>Separate Rider, Driver, and Admin apps connected through a WebSocket-backed API — live trip state, automated fare splits, and Stripe Connect payouts without end-of-day reconciliation spreadsheets.</p>
+            </div>
+          </div>
+          <div class="card-scene detail-card-scene detail-reveal">
+            <article class="card-3d detail-card">
+              <div class="card-3d-floor"></div>
+              <div class="card-3d-rim"></div>
+              <div class="card-3d-shine"></div>
+              <div class="card-3d-surface">
+                <h2><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Project goals</h2>
+                <p>Deliver a production-grade mobility stack where location updates and trip events feel instant, payments settle automatically, and ops teams can intervene from a single admin console.</p>
+                <ul class="detail-list">
+                  <li>Support 500+ concurrent connections with predictable WebSocket fan-out</li>
+                  <li>Keep trip event latency under 100ms for rider and driver UIs</li>
+                  <li>Ship three React Native apps sharing auth, maps, and API contracts</li>
+                  <li>Automate driver payouts via Stripe Connect with transparent fee breakdowns</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="feature-grid">
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+              <h3>Real-time WebSocket</h3>
+              <p>Room-based channels per trip — location pings, status changes, and chat propagate in under 100ms.</p>
+            </div>
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-brands fa-stripe" aria-hidden="true"></i>
+              <h3>Stripe Connect</h3>
+              <p>Split fares, hold platform fees, and trigger instant or scheduled payouts to verified driver accounts.</p>
+            </div>
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-brands fa-react" aria-hidden="true"></i>
+              <h3>React Native</h3>
+              <p>Shared design tokens and API hooks across Rider, Driver, and Admin builds for iOS and Android.</p>
+            </div>
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <h3>Live GPS tracking</h3>
+              <p>Background location with battery-aware throttling, geofenced pickup zones, and ETA recalculation.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="panel-arch" class="detail-panel" role="tabpanel" hidden>
+          <div class="card-scene detail-card-scene detail-reveal">
+            <article class="card-3d detail-card">
+              <div class="card-3d-floor"></div>
+              <div class="card-3d-rim"></div>
+              <div class="card-3d-shine"></div>
+              <div class="card-3d-surface">
+                <h2><i class="fa-solid fa-sitemap" aria-hidden="true"></i> System flow</h2>
+                <div class="arch-flow">
+                  <div class="arch-node"><i class="fa-brands fa-react"></i><div><strong>React Native apps</strong><span>Rider · Driver · Admin · shared SDK</span></div></div>
+                  <div class="arch-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                  <div class="arch-node"><i class="fa-solid fa-plug"></i><div><strong>WebSocket gateway</strong><span>Real-time rooms · &lt;100ms event fan-out</span></div></div>
+                  <div class="arch-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                  <div class="arch-node"><i class="fa-solid fa-server"></i><div><strong>Node.js API</strong><span>Trips · matching · fare engine</span></div></div>
+                  <div class="arch-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                  <div class="arch-node"><i class="fa-solid fa-database"></i><div><strong>PostgreSQL</strong><span>Users · trips · ledger · geo indexes</span></div></div>
+                  <div class="arch-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                  <div class="arch-node"><i class="fa-brands fa-stripe"></i><div><strong>Stripe Connect</strong><span>Charges · splits · driver payouts</span></div></div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="detail-split">
+            <div class="card-scene detail-card-scene detail-reveal">
+              <article class="card-3d detail-card"><div class="card-3d-surface">
+                <h2><i class="fa-solid fa-tower-broadcast" aria-hidden="true"></i> Real-time layer</h2>
+                <p>Socket.io with Redis adapter for horizontal scale. Trip rooms isolate events; heartbeat and reconnect logic keep mobile clients consistent after network drops.</p>
+              </div></article>
+            </div>
+            <div class="card-scene detail-card-scene detail-reveal">
+              <article class="card-3d detail-card"><div class="card-3d-surface">
+                <h2><i class="fa-solid fa-map" aria-hidden="true"></i> Maps &amp; matching</h2>
+                <p>PostGIS-backed driver queries, surge-aware pricing hooks, and map-matched polylines for accurate ETAs shown to riders waiting at pickup.</p>
+              </div></article>
+            </div>
+          </div>
+        </div>
+
+        <div id="panel-platform" class="detail-panel" role="tabpanel" hidden>
+          <div class="card-scene detail-card-scene detail-reveal">
+            <article class="card-3d detail-card">
+              <div class="card-3d-floor"></div>
+              <div class="card-3d-rim"></div>
+              <div class="card-3d-shine"></div>
+              <div class="card-3d-surface">
+                <h2><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i> Three-app platform</h2>
+                <p style="margin-bottom:1.25rem;color:var(--text-muted);font-size:var(--text-sm);">Each app targets a distinct persona with tailored flows while sharing authentication and trip contracts.</p>
+                <div class="app-grid">
+                  <div class="app-card glass">
+                    <i class="fa-solid fa-person-walking" aria-hidden="true"></i>
+                    <h3>Rider</h3>
+                    <p>Request rides, track driver ETA on a live map, pay in-app, and rate completed trips.</p>
+                  </div>
+                  <div class="app-card glass">
+                    <i class="fa-solid fa-car" aria-hidden="true"></i>
+                    <h3>Driver</h3>
+                    <p>Accept requests, navigate turn-by-turn, manage availability, and view Stripe payout history.</p>
+                  </div>
+                  <div class="app-card glass">
+                    <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+                    <h3>Admin</h3>
+                    <p>Monitor active trips, resolve disputes, adjust surge zones, and verify driver onboarding documents.</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="feature-grid detail-reveal">
+            <div class="feature-item glass">
+              <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+              <h3>WebSocket events</h3>
+              <p>Trip lifecycle broadcasts — assigned, arrived, started, completed — with idempotent handlers on reconnect.</p>
+            </div>
+            <div class="feature-item glass">
+              <i class="fa-brands fa-stripe" aria-hidden="true"></i>
+              <h3>Stripe Connect</h3>
+              <p>Express accounts for drivers, application fees for the platform, and webhook-driven payout reconciliation.</p>
+            </div>
+            <div class="feature-item glass">
+              <i class="fa-brands fa-react" aria-hidden="true"></i>
+              <h3>React Native core</h3>
+              <p>Expo-managed builds with native modules for background geolocation and push notifications.</p>
+            </div>
+            <div class="feature-item glass">
+              <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+              <h3>Ops dashboards</h3>
+              <p>Admin heatmaps for demand, cancellation reasons, and fleet utilization during peak windows.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="panel-outcomes" class="detail-panel" role="tabpanel" hidden>
+          <div class="card-scene detail-card-scene detail-reveal">
+            <article class="card-3d detail-card">
+              <div class="card-3d-surface">
+                <h2><i class="fa-solid fa-trophy" aria-hidden="true"></i> Measurable impact</h2>
+                <ul class="detail-list">
+                  <li><strong>500+ concurrent users</strong> sustained in load tests without WebSocket degradation</li>
+                  <li><strong>&lt;100ms median</strong> event delivery from server emit to client handler</li>
+                  <li><strong>3 production apps</strong> sharing one API contract and design system</li>
+                  <li><strong>5 hours saved per driver weekly</strong> by eliminating manual payment reconciliation</li>
+                  <li><strong>Automated payouts</strong> via Stripe Connect reduced settlement errors to near zero</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <nav class="detail-pager" aria-label="Other projects">
+          <a href="clockinn.html" class="pager-link"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> ClockInn-Pro</a>
+          <a href="email-tracker.html" class="pager-link">Next: Email Tracker <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </nav>
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="card-scene sidebar-card">
+          <div class="card-3d"><div class="card-3d-surface">
+            <h3>Impact metrics</h3>
+            <div class="metric-row"><span>Concurrency</span><strong>500+</strong></div>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:100%"></div></div>
+            <div class="metric-row"><span>Event latency</span><strong>&lt;100ms</strong></div>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:92%"></div></div>
+            <div class="metric-row"><span>Apps shipped</span><strong>3</strong></div>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:100%"></div></div>
+            <div class="metric-row"><span>Driver time saved</span><strong>5 hrs/wk</strong></div>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:88%"></div></div>
+          </div></div>
+        </div>
+        <div class="card-scene sidebar-card">
+          <div class="card-3d"><div class="card-3d-surface">
+            <h3>Tech stack</h3>
+            <div class="stack-list">
+              <span class="stack-chip">React Native</span>
+              <span class="stack-chip">Node.js</span>
+              <span class="stack-chip">WebSocket</span>
+              <span class="stack-chip">Stripe Connect</span>
+              <span class="stack-chip">PostgreSQL</span>
+              <span class="stack-chip">Redis</span>
+              <span class="stack-chip">PostGIS</span>
+            </div>
+          </div></div>
+        </div>
+        <div class="card-scene sidebar-card">
+          <div class="card-3d"><div class="card-3d-surface">
+            <h3>On this page</h3>
+            <nav class="sidebar-nav">
+              <a href="#" data-panel="panel-overview"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Overview</a>
+              <a href="#" data-panel="panel-arch"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Architecture</a>
+              <a href="#" data-panel="panel-platform"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Platform</a>
+              <a href="#" data-panel="panel-outcomes"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Outcomes</a>
+            </nav>
+          </div></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="../js/grid-canvas.js"></script>
+  <script src="../js/particles.js"></script>
+  <script src="../js/spotlight.js"></script>
+  <script src="../js/cards-3d.js"></script>
+  <script src="../js/project-detail.js"></script>
+</body>
+</html>

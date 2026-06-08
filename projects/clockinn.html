@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClockInn-Pro | Pradhuman Patel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/glass.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/effects.css">
+  <link rel="stylesheet" href="../css/project-detail.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="mesh-bg" aria-hidden="true">
+    <div class="mesh-blob mesh-blob-1"></div>
+    <div class="mesh-blob mesh-blob-2"></div>
+    <div class="mesh-blob mesh-blob-3"></div>
+  </div>
+  <canvas id="grid-canvas" aria-hidden="true"></canvas>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="../index.html" class="logo-badge neo" aria-label="Home">PP</a>
+      <a href="../index.html#projects" class="back-link"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> All Projects</a>
+    </div>
+    <a href="https://github.com/Pd-Patel-dev" class="btn-glass" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+  </header>
+
+  <main class="page-wrap detail-page" id="main">
+    <header class="detail-hero">
+      <div class="detail-hero-glow" aria-hidden="true"></div>
+      <figure class="detail-hero-preview">
+        <img
+          src="../assets/projects/clockinn.jpg"
+          srcset="../assets/projects/clockinn-thumb.png 640w, ../assets/projects/clockinn.jpg 1200w"
+          sizes="(max-width: 768px) 100vw, min(1100px, 92vw)"
+          alt="ClockInn Pro dashboard preview"
+          width="1200"
+          height="750"
+          loading="eager"
+          decoding="async"
+        >
+      </figure>
+      <span class="detail-badge badge-saas">Full-Stack SaaS</span>
+      <div class="detail-meta-row">
+        <span class="detail-meta-pill"><i class="fa-solid fa-calendar" aria-hidden="true"></i> 2024</span>
+        <span class="detail-meta-pill"><i class="fa-solid fa-user" aria-hidden="true"></i> Solo · Full-Stack</span>
+        <span class="detail-meta-pill"><i class="fa-solid fa-clock" aria-hidden="true"></i> Next.js · FastAPI · PostgreSQL</span>
+      </div>
+      <h1>ClockInn-Pro</h1>
+      <p class="lead">A payroll-ready time-tracking SaaS for teams up to 50 — shift scheduling, geofenced clock-in/out, role-based access, and one-click payroll exports without spreadsheet chaos.</p>
+      <div class="detail-actions">
+        <a href="https://github.com/Pd-Patel-dev" class="btn-primary" target="_blank" rel="noopener noreferrer">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        <a href="../index.html#contact" class="btn-glass">Discuss this project</a>
+      </div>
+      <div class="detail-quick-stats">
+        <div class="card-scene quick-stat detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <div class="value" data-count="80" data-suffix="%">0%</div>
+            <div class="label">Admin time saved</div>
+          </div></div>
+        </div>
+        <div class="card-scene quick-stat detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <div class="value" data-count="0">0</div>
+            <div class="label">Auth incidents</div>
+          </div></div>
+        </div>
+        <div class="card-scene quick-stat detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <div class="value" data-count="50">0</div>
+            <div class="label">Team size supported</div>
+          </div></div>
+        </div>
+        <div class="card-scene quick-stat detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <div class="value" data-count="1" data-suffix="-click">0-click</div>
+            <div class="label">Payroll export</div>
+          </div></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="detail-body">
+      <div class="detail-main">
+        <nav class="detail-tabs glass" role="tablist" aria-label="Project sections">
+          <button type="button" class="detail-tab active" role="tab" aria-selected="true" data-panel="panel-overview"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>Overview</button>
+          <button type="button" class="detail-tab" role="tab" aria-selected="false" data-panel="panel-arch"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i>Architecture</button>
+          <button type="button" class="detail-tab" role="tab" aria-selected="false" data-panel="panel-features"><i class="fa-solid fa-puzzle-piece" aria-hidden="true"></i>Features</button>
+          <button type="button" class="detail-tab" role="tab" aria-selected="false" data-panel="panel-outcomes"><i class="fa-solid fa-chart-line" aria-hidden="true"></i>Outcomes</button>
+        </nav>
+
+        <div id="panel-overview" class="detail-panel active" role="tabpanel">
+          <div class="ps-grid detail-reveal">
+            <div class="ps-block problem glass">
+              <h3><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Problem</h3>
+              <p>Small teams juggle paper timesheets, ad-hoc Slack messages, and error-prone spreadsheets — managers lose hours reconciling hours before every payroll run, and employees lack clarity on shifts and approvals.</p>
+            </div>
+            <div class="ps-block solution glass">
+              <h3><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Solution</h3>
+              <p>A unified web app where managers publish schedules, employees clock in with audit trails, and payroll-ready reports export in one click — with JWT-secured roles so each person sees only what they need.</p>
+            </div>
+          </div>
+          <div class="card-scene detail-card-scene detail-reveal">
+            <article class="card-3d detail-card">
+              <div class="card-3d-floor"></div>
+              <div class="card-3d-rim"></div>
+              <div class="card-3d-shine"></div>
+              <div class="card-3d-surface">
+                <h2><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Project goals</h2>
+                <p>Replace manual payroll prep with a trustworthy source of truth for hours worked. Optimize for managers who need fast approvals and employees who need a frictionless mobile clock-in experience.</p>
+                <ul class="detail-list">
+                  <li>Cut weekly admin overhead by 80% versus spreadsheet workflows</li>
+                  <li>Support teams up to 50 with predictable performance and clear RBAC</li>
+                  <li>Ship zero-trust auth patterns — short-lived JWTs, refresh rotation, and audit logs</li>
+                  <li>Deliver PDF and Excel payroll exports accountants can use immediately</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="feature-grid">
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+              <h3>Shift scheduling</h3>
+              <p>Drag-and-drop weekly grids, recurring templates, and conflict detection before shifts go live.</p>
+            </div>
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-solid fa-fingerprint" aria-hidden="true"></i>
+              <h3>Clock-in / out</h3>
+              <p>Web and mobile-friendly punches with optional geofence validation and manager override trails.</p>
+            </div>
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-solid fa-user-shield" aria-hidden="true"></i>
+              <h3>Role-based access</h3>
+              <p>Manager, employee, and payroll roles with scoped APIs — no cross-tenant data leakage.</p>
+            </div>
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-solid fa-file-export" aria-hidden="true"></i>
+              <h3>Payroll exports</h3>
+              <p>One-click PDF summaries and Excel breakdowns with overtime, PTO, and approval status columns.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="panel-arch" class="detail-panel" role="tabpanel" hidden>
+          <div class="card-scene detail-card-scene detail-reveal">
+            <article class="card-3d detail-card">
+              <div class="card-3d-floor"></div>
+              <div class="card-3d-rim"></div>
+              <div class="card-3d-shine"></div>
+              <div class="card-3d-surface">
+                <h2><i class="fa-solid fa-sitemap" aria-hidden="true"></i> System flow</h2>
+                <div class="arch-flow">
+                  <div class="arch-node"><i class="fa-brands fa-react"></i><div><strong>Next.js SSR</strong><span>Dashboard · schedules · employee portal</span></div></div>
+                  <div class="arch-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                  <div class="arch-node"><i class="fa-solid fa-key"></i><div><strong>JWT auth layer</strong><span>Access + refresh tokens · RBAC middleware</span></div></div>
+                  <div class="arch-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                  <div class="arch-node"><i class="fa-solid fa-server"></i><div><strong>FastAPI</strong><span>Time entries · approvals · export jobs</span></div></div>
+                  <div class="arch-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                  <div class="arch-node"><i class="fa-solid fa-database"></i><div><strong>PostgreSQL</strong><span>Shifts · punches · payroll snapshots</span></div></div>
+                  <div class="arch-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                  <div class="arch-node"><i class="fa-solid fa-file-pdf"></i><div><strong>Export service</strong><span>PDF / Excel generation · signed download URLs</span></div></div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="detail-split">
+            <div class="card-scene detail-card-scene detail-reveal">
+              <article class="card-3d detail-card"><div class="card-3d-surface">
+                <h2><i class="fa-solid fa-desktop" aria-hidden="true"></i> Frontend</h2>
+                <p>Next.js with SSR for fast first paint on manager dashboards. React Query caches shift data; optimistic updates for approvals keep the UI responsive on slow networks.</p>
+              </div></article>
+            </div>
+            <div class="card-scene detail-card-scene detail-reveal">
+              <article class="card-3d detail-card"><div class="card-3d-surface">
+                <h2><i class="fa-solid fa-shield-halved" aria-hidden="true"></i> Security</h2>
+                <p>bcrypt password hashing, HTTP-only refresh cookies, and per-route permission checks. All punch mutations write to an append-only audit log for dispute resolution.</p>
+              </div></article>
+            </div>
+          </div>
+        </div>
+
+        <div id="panel-features" class="detail-panel" role="tabpanel" hidden>
+          <div class="feature-grid detail-reveal">
+            <div class="feature-item glass">
+              <i class="fa-solid fa-calendar-days" aria-hidden="true"></i>
+              <h3>Scheduling</h3>
+              <p>Publish weekly rosters with role assignments, swap requests, and email digests when schedules change.</p>
+            </div>
+            <div class="feature-item glass">
+              <i class="fa-solid fa-stopwatch" aria-hidden="true"></i>
+              <h3>Clock-in / out</h3>
+              <p>Timestamped punches with break rules, late flags, and manager corrections that preserve the original entry.</p>
+            </div>
+            <div class="feature-item glass">
+              <i class="fa-solid fa-users-gear" aria-hidden="true"></i>
+              <h3>RBAC</h3>
+              <p>Three roles — Manager, Employee, Payroll — each with dedicated navigation and API scopes enforced server-side.</p>
+            </div>
+            <div class="feature-item glass">
+              <i class="fa-solid fa-file-invoice" aria-hidden="true"></i>
+              <h3>Payroll export</h3>
+              <p>Generate period-close reports as PDF for review or Excel for import into QuickBooks and similar tools.</p>
+            </div>
+          </div>
+          <div class="card-scene detail-card-scene detail-reveal">
+            <article class="card-3d detail-card pipeline-wrap">
+              <div class="card-3d-floor"></div>
+              <div class="card-3d-rim"></div>
+              <div class="card-3d-shine"></div>
+              <div class="card-3d-surface">
+                <h2><i class="fa-solid fa-users" aria-hidden="true"></i> Role-based workflow</h2>
+                <p style="margin-bottom:1.25rem;color:var(--text-muted);font-size:var(--text-sm);">Click each role to see how they interact with the system.</p>
+                <div class="pipeline-steps">
+                  <button type="button" class="pipeline-step active" data-detail="Managers create teams, publish shift templates, approve time-off, and review flagged punches. They see org-wide dashboards, can override missed clock-ins with notes, and lock pay periods before export.">
+                    <span class="pipeline-num">01</span>
+                    <div><h3>Manager</h3><p>Schedules · approvals · period close</p></div>
+                  </button>
+                  <button type="button" class="pipeline-step" data-detail="Employees view their upcoming shifts, clock in and out from any device, request swaps, and track accrued hours. They only access their own punches and cannot see peer data or payroll totals.">
+                    <span class="pipeline-num">02</span>
+                    <div><h3>Employee</h3><p>Shifts · punches · self-service</p></div>
+                  </button>
+                  <button type="button" class="pipeline-step" data-detail="Payroll users run one-click exports for locked periods, download PDF summaries for leadership, and pull Excel files with overtime and deduction columns. Read-only access to hours — no schedule editing rights.">
+                    <span class="pipeline-num">03</span>
+                    <div><h3>Payroll</h3><p>Exports · reconciliation · reporting</p></div>
+                  </button>
+                </div>
+                <div class="pipeline-detail" id="pipeline-detail-text">Managers create teams, publish shift templates, approve time-off, and review flagged punches. They see org-wide dashboards, can override missed clock-ins with notes, and lock pay periods before export.</div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div id="panel-outcomes" class="detail-panel" role="tabpanel" hidden>
+          <div class="card-scene detail-card-scene detail-reveal">
+            <article class="card-3d detail-card">
+              <div class="card-3d-surface">
+                <h2><i class="fa-solid fa-trophy" aria-hidden="true"></i> Measurable impact</h2>
+                <ul class="detail-list">
+                  <li><strong>80% reduction</strong> in weekly admin time for managers running payroll prep</li>
+                  <li><strong>0 auth incidents</strong> across penetration-style testing of JWT and session flows</li>
+                  <li><strong>50-employee ceiling</strong> validated with load tests on schedule and punch APIs</li>
+                  <li><strong>1-click export</strong> replaces multi-step spreadsheet merges accountants used before</li>
+                  <li><strong>Audit-ready trails</strong> for every punch edit — disputes resolved in minutes, not days</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <nav class="detail-pager" aria-label="Other projects">
+          <a href="email-tracker.html" class="pager-link"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Email Tracker</a>
+          <a href="waypool.html" class="pager-link">Next: Waypool <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </nav>
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="card-scene sidebar-card">
+          <div class="card-3d"><div class="card-3d-surface">
+            <h3>Impact metrics</h3>
+            <div class="metric-row"><span>Admin saved</span><strong>80%</strong></div>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:80%"></div></div>
+            <div class="metric-row"><span>Auth incidents</span><strong>0</strong></div>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:100%"></div></div>
+            <div class="metric-row"><span>Team capacity</span><strong>50</strong></div>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:100%"></div></div>
+            <div class="metric-row"><span>Export speed</span><strong>1-click</strong></div>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:95%"></div></div>
+          </div></div>
+        </div>
+        <div class="card-scene sidebar-card">
+          <div class="card-3d"><div class="card-3d-surface">
+            <h3>Tech stack</h3>
+            <div class="stack-list">
+              <span class="stack-chip">Next.js</span>
+              <span class="stack-chip">FastAPI</span>
+              <span class="stack-chip">PostgreSQL</span>
+              <span class="stack-chip">JWT</span>
+              <span class="stack-chip">TypeScript</span>
+              <span class="stack-chip">Python</span>
+              <span class="stack-chip">React Query</span>
+            </div>
+          </div></div>
+        </div>
+        <div class="card-scene sidebar-card">
+          <div class="card-3d"><div class="card-3d-surface">
+            <h3>On this page</h3>
+            <nav class="sidebar-nav">
+              <a href="#" data-panel="panel-overview"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Overview</a>
+              <a href="#" data-panel="panel-arch"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Architecture</a>
+              <a href="#" data-panel="panel-features"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Features</a>
+              <a href="#" data-panel="panel-outcomes"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Outcomes</a>
+            </nav>
+          </div></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="../js/grid-canvas.js"></script>
+  <script src="../js/particles.js"></script>
+  <script src="../js/spotlight.js"></script>
+  <script src="../js/cards-3d.js"></script>
+  <script src="../js/project-detail.js"></script>
+</body>
+</html>

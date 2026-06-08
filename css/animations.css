@@ -1,0 +1,196 @@
+/* Motion layer — professional, restrained */
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes shimmerLine {
+  0% { transform: scaleX(0); opacity: 0; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes iconNudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(167, 139, 250, 0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(167, 139, 250, 0); }
+}
+
+@keyframes badgePop {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes stackIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes headingReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes meshPulse {
+  0%, 100% { opacity: 0.35; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.05); }
+}
+
+/* Navbar scroll — floating glass pill (see glass.css) */
+
+/* Section headings */
+.section-heading.revealed {
+  animation: headingReveal 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.section-heading.revealed::after {
+  content: '';
+  display: block;
+  width: 72px;
+  height: 3px;
+  margin-top: 1rem;
+  background: var(--gradient-brand);
+  background-size: 200% 200%;
+  animation: shimmerLine 0.6s ease-out 0.2s forwards, gradientShift 8s ease infinite 0.8s;
+  transform-origin: left;
+  transform: scaleX(0);
+  border-radius: 2px;
+}
+
+#contact .section-heading.revealed::after {
+  margin-left: auto;
+  margin-right: auto;
+  transform-origin: center;
+}
+
+.section-flourish {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.02em;
+  color: var(--accent-violet-light);
+  margin: -0.5rem 0 0.35rem;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(12px) rotate(-2deg);
+}
+
+.section-flourish.revealed {
+  opacity: 1;
+  transform: translateY(0) rotate(-2deg);
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* heading-hand — see typography.css */
+
+/* Hero stack stagger */
+.hero-stack.visible span {
+  animation: stackIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: calc(0.55s + var(--i, 0) * 0.06s);
+}
+
+.hero-stack span:hover {
+  border-color: rgba(96, 165, 250, 0.65);
+  color: var(--text-primary);
+}
+
+/* Skill badges */
+.skill-badge.badge-pop {
+  animation: badgePop 0.45s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+/* Buttons */
+.btn-primary i,
+.card-cta i {
+  transition: transform 0.25s ease;
+}
+
+.btn-primary:hover i {
+  animation: iconNudge 0.6s ease infinite;
+}
+
+/* Status */
+.status-icon {
+  color: var(--accent-cyan);
+  font-size: 0.85rem;
+  animation: pulseGlow 2.5s ease infinite;
+}
+
+.status-dot {
+  animation: pulseGlow 2s ease infinite;
+}
+
+/* Project cards subtle float */
+.project-scene.revealed .project-card-3d {
+  animation: floatSoft 7s ease-in-out infinite;
+}
+
+.project-scene.revealed:nth-child(2) .project-card-3d {
+  animation-delay: -2.3s;
+}
+
+.project-scene.revealed:nth-child(3) .project-card-3d {
+  animation-delay: -4.6s;
+}
+
+/* Stat counters glow on reveal */
+.stat-card-3d .stat-value {
+  background: var(--gradient-text);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-role-tag i {
+  margin-right: 0.35rem;
+  color: var(--accent-primary);
+  font-size: 0.75rem;
+  vertical-align: middle;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-heading.revealed,
+  .section-flourish.revealed,
+  .hero-stack.visible span,
+  .skill-badge.badge-pop,
+  .project-scene.revealed .project-card-3d {
+    animation: none !important;
+    transition: none !important;
+  }
+  .section-heading.revealed::after {
+    transform: scaleX(1);
+    animation: none;
+  }
+}

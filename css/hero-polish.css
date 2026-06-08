@@ -1,0 +1,129 @@
+/* Hero — contrast, interaction, professional polish */
+
+.hero-inner .hero-name {
+  text-align: center;
+  width: 100%;
+  overflow: visible;
+}
+
+@keyframes letterFill {
+  to {
+    opacity: 1;
+    color: #ffffff;
+  }
+}
+
+.hero-role-tag {
+  color: #c7d2fe;
+}
+
+.hero-role-tag i {
+  color: var(--accent-primary);
+}
+
+.hero-badge.card-3d-surface,
+.card-3d-surface.hero-badge {
+  color: var(--text-secondary) !important;
+  font-weight: 600;
+}
+
+.hero-badge .status-icon {
+  color: var(--accent-green);
+}
+
+/* Tech stack pills — readable + interactive */
+.hero-stack span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.45rem 0.95rem;
+  color: var(--text-secondary);
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  border-radius: 999px;
+  cursor: default;
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.hero-stack span:hover,
+.hero-stack span:focus-visible {
+  color: #f8fafc;
+  border-color: rgba(96, 165, 250, 0.65);
+  background: rgba(30, 58, 138, 0.45);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+  transform: translateY(-3px) scale(1.04);
+  outline: none;
+}
+
+/* CTAs — higher contrast */
+.hero-ctas .btn-primary {
+  color: #fff !important;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 2px 0 rgba(0, 0, 0, 0.25),
+    0 8px 28px rgba(37, 99, 235, 0.45);
+}
+
+.hero-ctas .btn-primary:hover {
+  box-shadow:
+    0 4px 0 rgba(0, 0, 0, 0.2),
+    0 14px 36px rgba(59, 130, 246, 0.55);
+}
+
+.hero-ctas .btn-glass {
+  color: var(--text-primary) !important;
+  background: rgba(15, 23, 42, 0.75) !important;
+  border: 1px solid rgba(148, 163, 184, 0.4) !important;
+  font-weight: 650;
+}
+
+.hero-ctas .btn-glass:hover {
+  border-color: rgba(96, 165, 250, 0.55) !important;
+  background: rgba(30, 58, 138, 0.35) !important;
+}
+
+/* Magnetic lift target */
+.interactive.magnetic-ready {
+  transition: transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Ripple on click */
+.hero-ripple {
+  position: absolute;
+  border-radius: 50%;
+  transform: scale(0);
+  background: rgba(255, 255, 255, 0.35);
+  animation: heroRipple 0.55s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes heroRipple {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 901px) {
+  .hero-copy .hero-name {
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-name {
+    font-size: clamp(0.9rem, 3.4vw, 1.31rem);
+    align-items: center;
+  }
+
+  .hero-name-line {
+    max-width: 100%;
+  }
+}

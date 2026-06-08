@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pradhuman Patel — Full-Stack & AI Engineer. CS @ UIC. Building production apps with AI/ML and modern web stacks.">
+  <title>Pradhuman Patel | Full-Stack & AI Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/shared.css">
+  <link rel="stylesheet" href="css/glass.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/typography.css">
+  <link rel="stylesheet" href="css/effects.css">
+  <link rel="stylesheet" href="css/hero-portrait.css">
+  <link rel="stylesheet" href="css/hero-polish.css">
+  <link rel="stylesheet" href="css/code-terminal.css">
+  <link rel="stylesheet" href="css/skills-stack.css">
+  <link rel="stylesheet" href="css/projects-showcase.css">
+  <link rel="stylesheet" href="css/contact-section.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <div aria-hidden="true">
+    <div class="mesh-bg">
+      <div class="mesh-blob mesh-blob-1"></div>
+      <div class="mesh-blob mesh-blob-2"></div>
+      <div class="mesh-blob mesh-blob-3"></div>
+      <div class="mesh-blob mesh-blob-4"></div>
+    </div>
+  </div>
+  <canvas id="grid-canvas" aria-hidden="true"></canvas>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
+
+  <header class="navbar" id="navbar">
+    <a href="#hero" class="logo-badge neo" aria-label="Home">PP</a>
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" data-section="about">About</a></li>
+        <li><a href="#skills" data-section="skills">Skills</a></li>
+        <li><a href="#projects" data-section="projects">Projects</a></li>
+        <li><a href="#experience" data-section="experience">Experience</a></li>
+        <li><a href="#contact" data-section="contact">Contact</a></li>
+      </ul>
+    </nav>
+    <a href="#" class="btn-resume-nav" id="resume-download-nav"><i class="fa-solid fa-file-arrow-down" aria-hidden="true"></i> Resume</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+    <a href="#" id="resume-mobile">Download Resume</a>
+  </nav>
+
+  <main class="page-wrap" id="main-content">
+    <section id="hero">
+      <div class="hero-aurora" aria-hidden="true"></div>
+      <div class="hero-beam" aria-hidden="true"></div>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-inner">
+            <p class="hero-role-tag reveal" id="hero-role-tag"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Crafting interfaces &amp; systems</p>
+            <div class="card-scene hero-badge-scene reveal" id="hero-badge-wrap" style="width:fit-content;margin:0 0 1.5rem;">
+              <div class="card-3d">
+                <div class="card-3d-floor"></div>
+                <div class="card-3d-rim"></div>
+                <div class="card-3d-shine"></div>
+                <div class="card-3d-surface hero-badge" id="hero-badge"><i class="fa-solid fa-circle-check status-icon" aria-hidden="true"></i><span>Available for Internships &amp; SWE Roles</span></div>
+              </div>
+            </div>
+            <h1 class="hero-name" id="hero-name" aria-label="Pradhuman Patel"></h1>
+            <p class="hero-subtitle" id="hero-subtitle"></p>
+            <p class="hero-bio" id="hero-bio">UI/UX craft · React/Next.js · Full-stack APIs · 3 shipped products</p>
+            <div class="hero-stack reveal" id="hero-stack">
+              <span>React</span><span>TypeScript</span><span>Next.js</span><span>Node.js</span><span>FastAPI</span><span>PostgreSQL</span>
+            </div>
+            <div class="hero-ctas" id="hero-ctas">
+              <a href="#projects" class="btn-primary interactive">View Projects <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+              <a href="#" class="btn-glass interactive" id="resume-hero">Download Resume <i class="fa-solid fa-download" aria-hidden="true"></i></a>
+            </div>
+            <div class="hero-socials" id="hero-socials">
+              <a href="https://github.com/Pd-Patel-dev" class="social-btn interactive" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <span class="card-scene social-scene"><span class="card-3d"><span class="card-3d-surface"><i class="fa-brands fa-github"></i></span></span></span>
+              </a>
+              <a href="https://linkedin.com/in/pradhuman-patel" class="social-btn interactive" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <span class="card-scene social-scene"><span class="card-3d"><span class="card-3d-surface"><i class="fa-brands fa-linkedin-in"></i></span></span></span>
+              </a>
+              <a href="mailto:pd.dev267@gmail.com" class="social-btn interactive" aria-label="Email">
+                <span class="card-scene social-scene"><span class="card-3d"><span class="card-3d-surface"><i class="fa-solid fa-envelope"></i></span></span></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-portrait-col" id="hero-portrait-wrap">
+          <figure class="hero-portrait hero-portrait--3d" id="hero-portrait">
+            <div class="portrait-depth" id="portrait-depth">
+              <div class="portrait-aurora" aria-hidden="true"></div>
+              <div class="portrait-shadow-floor" aria-hidden="true"></div>
+              <div class="portrait-pedestal" aria-hidden="true"></div>
+              <div class="portrait-stage" id="portrait-scene">
+                <div class="portrait-img-3d">
+                  <div class="portrait-edge-glow" aria-hidden="true"></div>
+                  <div class="portrait-light-sweep" aria-hidden="true"></div>
+                  <img src="assets/profile-cutout.png" alt="Pradhuman Patel — Full-Stack &amp; AI Engineer" class="hero-portrait-img" id="hero-portrait-img" width="1054" height="1110" loading="eager" decoding="async">
+                </div>
+              </div>
+            </div>
+            <p class="portrait-status"><span class="pulse-dot" aria-hidden="true"></span> Open to work</p>
+          </figure>
+        </div>
+
+      </div>
+      <div class="scroll-indicator" aria-hidden="true"><i class="fa-solid fa-chevron-down"></i></div>
+    </section>
+
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <section id="about">
+      <header class="section-header">
+        <p class="section-label reveal">// about_me</p>
+        <span class="section-flourish reveal">about me</span>
+        <h2 class="section-heading reveal">Building Things That <span class="heading-hand">Ship</span></h2>
+      </header>
+      <div class="about-grid">
+        <div class="about-text reveal prose">
+          <p>I'm a CS student at UIC (May 2027) obsessed with <strong>pixel-perfect interfaces</strong> and <strong>full-stack systems that ship</strong>. I design and build end-to-end — React/Next.js surfaces with intentional motion, accessibility, and zero layout clash, backed by FastAPI &amp; Node APIs.</p>
+          <p>Three production apps in the wild: LLM email pipelines, payroll SaaS, and real-time ride-sharing. I care about crisp UX hierarchy, 60fps interactions, and measurable outcomes — 60–80% workflow cuts, 3× faster inference, 500+ concurrent sessions.</p>
+          <p>Looking for frontend-heavy SWE, full-stack, and AI engineer roles where craft and velocity both matter.</p>
+          <div class="badges-row">
+            <div class="card-scene" style="width:fit-content;">
+              <div class="card-3d"><div class="card-3d-surface status-badge"><i class="fa-solid fa-location-dot"></i> Chicago, IL</div></div>
+            </div>
+            <div class="card-scene" style="width:fit-content;">
+              <div class="card-3d"><div class="card-3d-surface status-badge"><span class="status-dot"></span> Open to Work</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-scene terminal-wrap reveal reveal-delay-1" id="terminal-card">
+          <div class="card-3d">
+            <div class="card-3d-floor"></div>
+            <div class="card-3d-rim"></div>
+            <div class="card-3d-shine"></div>
+            <div class="card-3d-surface terminal" id="code-terminal">
+              <div class="terminal-header">
+                <div class="terminal-dots"><span></span><span></span><span></span></div>
+                <div class="terminal-tabs">
+                  <span class="terminal-tab is-active" id="terminal-tab-file">
+                    <i class="fa-solid fa-file-code" aria-hidden="true"></i> pradhuman.json
+                  </span>
+                  <span class="terminal-tab is-idle">portfolio.tsx</span>
+                </div>
+                <span class="terminal-status" id="terminal-status" aria-live="polite">
+                  <span class="status-led"></span>
+                  <span class="status-text">idle</span>
+                </span>
+              </div>
+              <div class="terminal-editor">
+                <div class="terminal-gutter" id="terminal-gutter" aria-hidden="true"></div>
+                <pre class="terminal-code-wrap" id="terminal-content"><code id="terminal-code"></code></pre>
+                <div class="terminal-vignette" aria-hidden="true"></div>
+                <div class="terminal-scanline" aria-hidden="true"></div>
+                <div class="terminal-glow" aria-hidden="true"></div>
+              </div>
+              <div class="terminal-run" id="terminal-run" hidden>
+                <div class="run-progress" id="terminal-progress" aria-hidden="true">
+                  <div class="run-progress-bar" id="terminal-progress-bar"></div>
+                </div>
+                <div class="run-line run-cmd" id="terminal-run-cmd"></div>
+                <div class="run-log" id="terminal-run-log"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="card-scene reveal">
+          <div class="card-3d stat-card-3d" data-target="91" data-suffix="%">
+            <div class="card-3d-floor"></div>
+            <div class="card-3d-rim"></div>
+            <div class="card-3d-shine"></div>
+            <div class="card-3d-surface">
+              <div class="stat-value"><span class="counter">0</span>%</div>
+              <p class="stat-label">ML Model Precision</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-scene reveal reveal-delay-1">
+          <div class="card-3d stat-card-3d" data-target="3" data-suffix="x">
+            <div class="card-3d-floor"></div>
+            <div class="card-3d-rim"></div>
+            <div class="card-3d-shine"></div>
+            <div class="card-3d-surface">
+              <div class="stat-value"><span class="counter">0</span>x</div>
+              <p class="stat-label">Faster Inference (ONNX)</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-scene reveal reveal-delay-2">
+          <div class="card-3d stat-card-3d" data-target="500" data-suffix="+">
+            <div class="card-3d-floor"></div>
+            <div class="card-3d-rim"></div>
+            <div class="card-3d-shine"></div>
+            <div class="card-3d-surface">
+              <div class="stat-value"><span class="counter">0</span>+</div>
+              <p class="stat-label">Concurrent Sessions (Waypool)</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-scene reveal reveal-delay-3">
+          <div class="card-3d stat-card-3d" data-target="80" data-suffix="%">
+            <div class="card-3d-floor"></div>
+            <div class="card-3d-rim"></div>
+            <div class="card-3d-shine"></div>
+            <div class="card-3d-surface">
+              <div class="stat-value"><span class="counter">0</span>%</div>
+              <p class="stat-label">Admin Effort Reduced (ClockInn)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <section id="skills" class="skills-section">
+      <header class="section-header">
+        <p class="section-label reveal">// tech_stack</p>
+        <span class="section-flourish reveal">the stack</span>
+        <h2 class="section-heading reveal">Frontend &amp; Full-Stack <span class="heading-hand">Stack</span></h2>
+      </header>
+      <p class="section-intro reveal">Design systems, React surfaces, APIs, and AI pipelines — organized by craft.</p>
+      <div class="stack-board reveal" id="stack-board" aria-label="Technology stack by category"></div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <section id="projects">
+      <header class="section-header">
+        <p class="section-label reveal">// featured_projects</p>
+        <span class="section-flourish reveal">shipped work</span>
+        <h2 class="section-heading reveal">What I've <span class="heading-hand">Shipped</span></h2>
+      </header>
+      <p class="section-intro reveal">Production-grade full-stack &amp; frontend systems — open each case study for architecture, UI decisions, and metrics.</p>
+      <div class="projects-stage">
+      <div class="projects-grid">
+        <div class="card-scene project-scene reveal">
+          <article class="card-3d project-card-3d">
+            <div class="card-3d-floor"></div>
+            <div class="card-3d-rim"></div>
+            <div class="card-3d-shine"></div>
+            <div class="card-3d-surface">
+              <a href="projects/email-tracker.html" class="card-main-link">
+                <figure class="card-visual card-visual-ai">
+                  <img
+                    src="assets/projects/email-tracker-thumb.png"
+                    srcset="assets/projects/email-tracker-thumb.png 640w, assets/projects/email-tracker.jpg 1200w"
+                    sizes="(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 33vw"
+                    alt="Email Tracker — AI classification dashboard"
+                    width="640"
+                    height="400"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="card-visual-shine" aria-hidden="true"></span>
+                  <span class="project-badge badge-ai">AI/ML Pipeline</span>
+                </figure>
+                <div class="card-body">
+                  <h3>AI-Powered Job Application Email Tracker</h3>
+                  <p>3-stage email classification: rules → BERT → LLM fallback.</p>
+                  <ul class="project-tech" aria-label="Technologies">
+                    <li>Python</li><li>BERT</li><li>FastAPI</li><li>ONNX</li>
+                  </ul>
+                  <ul class="project-metrics">
+                    <li>91% precision · 10K+ samples</li>
+                    <li>3× faster ONNX inference</li>
+                  </ul>
+                </div>
+              </a>
+              <div class="card-footer">
+                <a href="projects/email-tracker.html" class="card-cta interactive">View project <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="card-actions">
+                  <a href="https://github.com/Pd-Patel-dev" class="card-action-btn interactive" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="card-scene project-scene reveal reveal-delay-1">
+          <article class="card-3d project-card-3d">
+            <div class="card-3d-floor"></div>
+            <div class="card-3d-rim"></div>
+            <div class="card-3d-shine"></div>
+            <div class="card-3d-surface">
+              <a href="projects/clockinn.html" class="card-main-link">
+                <figure class="card-visual card-visual-saas">
+                  <img
+                    src="assets/projects/clockinn-thumb.png"
+                    srcset="assets/projects/clockinn-thumb.png 640w, assets/projects/clockinn.jpg 1200w"
+                    sizes="(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 33vw"
+                    alt="ClockInn Pro — time tracking dashboard"
+                    width="640"
+                    height="400"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="card-visual-shine" aria-hidden="true"></span>
+                  <span class="project-badge badge-saas">Full-Stack SaaS</span>
+                </figure>
+                <div class="card-body">
+                  <h3>ClockInn-Pro: Employee Time Tracking</h3>
+                  <p>Payroll & time-tracking SaaS for teams up to 50.</p>
+                  <ul class="project-tech" aria-label="Technologies">
+                    <li>React</li><li>Node.js</li><li>PostgreSQL</li><li>JWT</li>
+                  </ul>
+                  <ul class="project-metrics">
+                    <li>80% less admin effort</li>
+                    <li>Zero auth incidents</li>
+                  </ul>
+                </div>
+              </a>
+              <div class="card-footer">
+                <a href="projects/clockinn.html" class="card-cta interactive">View project <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="card-actions">
+                  <a href="https://github.com/Pd-Patel-dev" class="card-action-btn interactive" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="card-scene project-scene reveal reveal-delay-2">
+          <article class="card-3d project-card-3d">
+            <div class="card-3d-floor"></div>
+            <div class="card-3d-rim"></div>
+            <div class="card-3d-shine"></div>
+            <div class="card-3d-surface">
+              <a href="projects/waypool.html" class="card-main-link">
+                <figure class="card-visual card-visual-mobile">
+                  <img
+                    src="assets/projects/waypool-thumb.png"
+                    srcset="assets/projects/waypool-thumb.png 640w, assets/projects/waypool.jpg 1200w"
+                    sizes="(max-width: 640px) 88vw, (max-width: 1024px) 50vw, 33vw"
+                    alt="Waypool — ride-sharing mobile apps"
+                    width="640"
+                    height="400"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="card-visual-shine" aria-hidden="true"></span>
+                  <span class="project-badge badge-mobile">Mobile Platform</span>
+                </figure>
+                <div class="card-body">
+                  <h3>Waypool — Ride-Sharing Platform</h3>
+                  <p>3-app ride-sharing with real-time GPS & Stripe.</p>
+                  <ul class="project-tech" aria-label="Technologies">
+                    <li>Flutter</li><li>Node.js</li><li>WebSocket</li><li>Stripe</li>
+                  </ul>
+                  <ul class="project-metrics">
+                    <li>500+ concurrent sessions</li>
+                    <li>Sub-100ms WebSocket events</li>
+                  </ul>
+                </div>
+              </a>
+              <div class="card-footer">
+                <a href="projects/waypool.html" class="card-cta interactive">View project <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="card-actions">
+                  <a href="https://github.com/Pd-Patel-dev" class="card-action-btn interactive" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <section id="experience">
+      <header class="section-header">
+        <p class="section-label reveal">// work_experience</p>
+        <span class="section-flourish reveal">experience</span>
+        <h2 class="section-heading reveal">Where I've <span class="heading-hand">Contributed</span></h2>
+      </header>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <span class="timeline-dot"></span>
+          <div class="card-scene exp-scene">
+            <div class="card-3d exp-card-3d">
+              <div class="card-3d-floor"></div>
+              <div class="card-3d-rim"></div>
+              <div class="card-3d-shine"></div>
+              <div class="card-3d-surface">
+            <p class="exp-meta">Sept 2024 – Mar 2025 · Elk Grove Village, IL</p>
+            <h3>Software Engineering Intern — Amitron Corporation</h3>
+            <div class="exp-tags">
+              <span class="exp-tag">React</span>
+              <span class="exp-tag">TypeScript</span>
+              <span class="exp-tag">Node.js</span>
+              <span class="exp-tag">ERP Integration</span>
+            </div>
+            <ul>
+              <li>Reduced PCB job document generation time by 60% — from ~3 hrs to &lt;30 min</li>
+              <li>Built Node.js REST APIs normalizing ERP data as structured JSON</li>
+              <li>Reduced data inconsistency incidents by 40% via structured validation</li>
+              <li>Drove end-to-end delivery of 3 internal tooling features, cutting deployment cycle by 30%</li>
+            </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="edu-section">
+        <h3 class="section-heading reveal" style="font-size: 1.5rem;">Education</h3>
+        <div class="edu-grid">
+          <div class="card-scene edu-scene reveal">
+            <div class="card-3d edu-card-3d">
+              <div class="card-3d-floor"></div>
+              <div class="card-3d-rim"></div>
+              <div class="card-3d-shine"></div>
+              <div class="card-3d-surface edu-card-uic">
+                <div class="edu-card-brand">
+                  <img
+                    src="assets/uic-logo.png"
+                    alt="University of Illinois Chicago logo"
+                    class="edu-logo edu-logo-uic"
+                    width="56"
+                    height="56"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <div class="edu-card-brand-text">
+                    <p class="exp-meta">Aug 2025 – May 2027</p>
+                    <h3>B.S. Computer Science</h3>
+                    <p class="edu-institution edu-institution-uic">University of Illinois Chicago</p>
+                  </div>
+                </div>
+                <p class="edu-gpa">GPA: 3.68/4.0</p>
+                <p class="edu-courses">Data Structures & Algorithms, Machine Learning, NLP, AI, Software Design</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-scene edu-scene reveal reveal-delay-1">
+            <div class="card-3d edu-card-3d">
+              <div class="card-3d-floor"></div>
+              <div class="card-3d-rim"></div>
+              <div class="card-3d-shine"></div>
+              <div class="card-3d-surface edu-card-harper">
+                <div class="edu-card-brand">
+                  <img
+                    src="assets/harper-logo.png"
+                    alt="Harper College logo"
+                    class="edu-logo edu-logo-harper"
+                    width="64"
+                    height="64"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <div class="edu-card-brand-text">
+                    <p class="exp-meta">Aug 2023 – May 2025</p>
+                    <h3>A.S. Computer Science</h3>
+                    <p class="edu-institution edu-institution-harper">Harper College</p>
+                  </div>
+                </div>
+                <p class="edu-gpa">GPA: 3.72/4.0</p>
+                <p class="edu-courses">Programming Fundamentals C++, Discrete Mathematics, Probability & Statistics</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider" aria-hidden="true"></div>
+
+    <section id="contact" class="contact-section">
+      <div class="contact-shell reveal">
+        <div class="contact-layout">
+          <div class="contact-intro">
+            <p class="section-label reveal">// get_in_touch</p>
+            <span class="section-flourish reveal">let's talk</span>
+            <h2 class="section-heading reveal">Let's Build <span class="heading-hand">Something</span></h2>
+            <p class="contact-sub reveal">Frontend &middot; full-stack &middot; AI systems &middot; internships &amp; SWE roles starting 2026.</p>
+            <div class="contact-status reveal" role="status">
+              <span class="contact-status-dot" aria-hidden="true"></span>
+              <span>Available for roles &middot; Chicago / remote</span>
+            </div>
+            <a href="mailto:pd.dev267@gmail.com?subject=Hello%20Pradhuman" class="btn-primary contact-hero-cta interactive reveal">
+              Start a conversation <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="contact-panel reveal reveal-delay-1">
+            <div class="contact-panel-chrome" aria-hidden="true">
+              <span class="contact-panel-dot"></span>
+              <span class="contact-panel-dot"></span>
+              <span class="contact-panel-dot"></span>
+              <span class="contact-panel-title">connect.sh</span>
+            </div>
+            <ul class="contact-channels">
+              <li>
+                <a href="mailto:pd.dev267@gmail.com" class="contact-channel" data-contact="email">
+                  <span class="contact-channel-icon" aria-hidden="true"><i class="fa-solid fa-envelope"></i></span>
+                  <span class="contact-channel-body">
+                    <span class="contact-channel-label">Email</span>
+                    <span class="contact-channel-value">pd.dev267@gmail.com</span>
+                  </span>
+                  <span class="contact-channel-action" aria-hidden="true"><i class="fa-solid fa-copy"></i></span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/pradhuman-patel" class="contact-channel" target="_blank" rel="noopener noreferrer" data-contact="linkedin">
+                  <span class="contact-channel-icon" aria-hidden="true"><i class="fa-brands fa-linkedin-in"></i></span>
+                  <span class="contact-channel-body">
+                    <span class="contact-channel-label">LinkedIn</span>
+                    <span class="contact-channel-value">pradhuman-patel</span>
+                  </span>
+                  <span class="contact-channel-action" aria-hidden="true"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/Pd-Patel-dev" class="contact-channel" target="_blank" rel="noopener noreferrer" data-contact="github">
+                  <span class="contact-channel-icon" aria-hidden="true"><i class="fa-brands fa-github"></i></span>
+                  <span class="contact-channel-body">
+                    <span class="contact-channel-label">GitHub</span>
+                    <span class="contact-channel-value">Pd-Patel-dev</span>
+                  </span>
+                  <span class="contact-channel-action" aria-hidden="true"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </a>
+              </li>
+              <li>
+                <div class="contact-channel contact-channel-static" id="location-card" tabindex="0">
+                  <span class="contact-channel-icon" aria-hidden="true"><i class="fa-solid fa-location-dot"></i></span>
+                  <span class="contact-channel-body">
+                    <span class="contact-channel-label">Based in</span>
+                    <span class="contact-channel-value">Chicago, IL &middot; CST</span>
+                  </span>
+                  <span class="contact-channel-action" aria-hidden="true"><i class="fa-solid fa-map-pin"></i></span>
+                </div>
+              </li>
+            </ul>
+            <p class="contact-panel-hint" id="contact-hint" aria-live="polite">Tap email to copy &middot; links open in a new tab</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p class="footer-tagline">© 2026 Pradhuman Patel · <span class="footer-hand">built with precision</span><i class="fa-solid fa-code" aria-hidden="true"></i></p>
+    <div class="footer-socials">
+      <a href="https://github.com/Pd-Patel-dev" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://linkedin.com/in/pradhuman-patel" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="mailto:pd.dev267@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+    </div>
+    <p class="mono-email">pd.dev267@gmail.com</p>
+  </footer>
+
+  <button class="scroll-top neo" id="scroll-top" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="js/skills-stack.js"></script>
+  <script>
+    (function () {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+      const isMobile = window.matchMedia('(max-width: 1024px)').matches;
+      const enableCursor = !prefersReducedMotion && !isCoarsePointer && !isMobile;
+
+      /* Particle canvas */
+      const canvas = document.getElementById('particle-canvas');
+      const ctx = canvas.getContext('2d');
+      let particles = [];
+      const PARTICLE_COUNT = 75;
+
+      function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      function initParticles() {
+        particles = [];
+        for (let i = 0; i < PARTICLE_COUNT; i++) {
+          particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 0.3,
+            vy: (Math.random() - 0.5) * 0.3,
+            r: Math.random() * 1.5 + 1,
+            opacity: Math.random() * 0.3 + 0.1,
+            indigo: Math.random() > 0.5
+          });
+        }
+      }
+
+      function drawParticles() {
+        if (prefersReducedMotion) return;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < 0) p.x = canvas.width;
+          if (p.x > canvas.width) p.x = 0;
+          if (p.y < 0) p.y = canvas.height;
+          if (p.y > canvas.height) p.y = 0;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.indigo
+            ? `rgba(59, 130, 246, ${p.opacity})`
+            : `rgba(99, 102, 241, ${p.opacity * 0.75})`;
+          ctx.fill();
+        });
+        requestAnimationFrame(drawParticles);
+      }
+
+      resizeCanvas();
+      initParticles();
+      if (!prefersReducedMotion) drawParticles();
+      window.addEventListener('resize', () => { resizeCanvas(); initParticles(); });
+
+      /* Hero name — two rows: PRADHUMAN / PATEL */
+      const heroName = document.getElementById('hero-name');
+      const nameLines = ['PRADHUMAN', 'PATEL'];
+      let letterIndex = 0;
+      nameLines.forEach((line) => {
+        const row = document.createElement('div');
+        row.className = 'hero-name-line';
+        line.split('').forEach((char) => {
+          const span = document.createElement('span');
+          span.className = 'letter';
+          span.textContent = char;
+          span.style.animationDelay = `${letterIndex * 0.035}s`;
+          letterIndex++;
+          row.appendChild(span);
+        });
+        heroName.appendChild(row);
+      });
+
+      /* Text scramble */
+      const roles = [
+        'Frontend Engineer',
+        'Full-Stack Developer',
+        'UI/UX · Design Systems',
+        'AI Systems Builder'
+      ];
+      const subtitleEl = document.getElementById('hero-subtitle');
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&';
+      let roleIndex = 0;
+
+      function scrambleTo(target, callback) {
+        let iteration = 0;
+        const maxIter = target.length * 3;
+        const interval = setInterval(() => {
+          subtitleEl.textContent = target
+            .split('')
+            .map((letter, i) => {
+              if (letter === ' ') return ' ';
+              if (i < iteration / 3) return target[i];
+              return chars[Math.floor(Math.random() * chars.length)];
+            })
+            .join('');
+          iteration++;
+          if (iteration >= maxIter) {
+            clearInterval(interval);
+            subtitleEl.textContent = target;
+            if (callback) callback();
+          }
+        }, 30);
+      }
+
+      function cycleRoles() {
+        if (prefersReducedMotion) {
+          subtitleEl.textContent = roles[roleIndex];
+          roleIndex = (roleIndex + 1) % roles.length;
+          setTimeout(cycleRoles, 4000);
+          return;
+        }
+        scrambleTo(roles[roleIndex], () => {
+          roleIndex = (roleIndex + 1) % roles.length;
+          setTimeout(cycleRoles, 3000);
+        });
+      }
+
+      /* Hero stagger reveal */
+      setTimeout(() => {
+        ['hero-role-tag', 'hero-badge-wrap', 'hero-subtitle', 'hero-bio', 'hero-stack', 'hero-ctas', 'hero-socials', 'hero-portrait'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.classList.add('visible');
+        });
+        cycleRoles();
+      }, 400);
+
+
+      /* IntersectionObserver */
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('revealed');
+          const stat3d = entry.target.querySelector('.stat-card-3d');
+          if (stat3d) animateCounter(stat3d);
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+      function observeReveals() {
+        document.querySelectorAll('.reveal:not(.revealed), .timeline-item:not(.revealed)').forEach(el => revealObserver.observe(el));
+      }
+      window.observeReveals = observeReveals;
+      observeReveals();
+
+      const countersAnimated = new Set();
+      function animateCounter(card) {
+        if (countersAnimated.has(card)) return;
+        countersAnimated.add(card);
+        const target = parseInt(card.dataset.target, 10);
+        const counterEl = card.querySelector('.counter');
+        const duration = 1500;
+        const start = performance.now();
+        function update(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          counterEl.textContent = Math.floor(target * eased);
+          if (progress < 1) requestAnimationFrame(update);
+          else counterEl.textContent = target;
+        }
+        if (!prefersReducedMotion) requestAnimationFrame(update);
+        else counterEl.textContent = target;
+      }
+
+      /* Custom cursor */
+      if (enableCursor) {
+        const dot = document.getElementById('cursor-dot');
+        const ring = document.getElementById('cursor-ring');
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          dot.style.left = mouseX + 'px';
+          dot.style.top = mouseY + 'px';
+        });
+
+        function animateRing() {
+          ringX += (mouseX - ringX) * 0.15;
+          ringY += (mouseY - ringY) * 0.15;
+          ring.style.left = ringX + 'px';
+          ring.style.top = ringY + 'px';
+          requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        document.querySelectorAll('.interactive, a, button').forEach(el => {
+          el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+          el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+        });
+      }
+
+      /* Active nav */
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll('#nav-links a');
+
+      function updateActiveNav() {
+        let current = '';
+        sections.forEach(section => {
+          const top = section.offsetTop - 120;
+          if (window.scrollY >= top) current = section.getAttribute('id');
+        });
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.dataset.section === current);
+        });
+      }
+      window.addEventListener('scroll', updateActiveNav);
+      updateActiveNav();
+
+      /* Scroll to top */
+      const scrollTopBtn = document.getElementById('scroll-top');
+      window.addEventListener('scroll', () => {
+        scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
+      });
+      scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+      /* Hamburger */
+      const hamburger = document.getElementById('hamburger');
+      const mobileNav = document.getElementById('mobile-nav');
+      hamburger.addEventListener('click', () => {
+        const open = hamburger.classList.toggle('open');
+        mobileNav.classList.toggle('open', open);
+        hamburger.setAttribute('aria-expanded', open);
+        mobileNav.setAttribute('aria-hidden', !open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+      mobileNav.querySelectorAll('a').forEach(a => {
+        a.addEventListener('click', () => {
+          hamburger.classList.remove('open');
+          mobileNav.classList.remove('open');
+          document.body.style.overflow = '';
+        });
+      });
+
+      /* Resume placeholder */
+      const resumeLinks = ['resume-download-nav', 'resume-hero', 'resume-mobile'];
+      resumeLinks.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.addEventListener('click', (e) => {
+          e.preventDefault();
+          alert('Add your resume PDF link — replace href with /resume.pdf');
+        });
+      });
+
+    })();
+  </script>
+  <script src="js/contact-section.js"></script>
+  <script src="js/spotlight.js"></script>
+  <script src="js/grid-canvas.js"></script>
+  <script src="js/cards-3d.js"></script>
+  <script src="js/micro-animations.js"></script>
+  <script src="js/hero-portrait.js"></script>
+  <script src="js/hero-interactive.js"></script>
+  <script src="js/code-terminal.js"></script>
+</body>
+</html>

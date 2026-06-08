@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Tracker | Pradhuman Patel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/glass.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/effects.css">
+  <link rel="stylesheet" href="../css/project-detail.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="mesh-bg" aria-hidden="true">
+    <div class="mesh-blob mesh-blob-1"></div>
+    <div class="mesh-blob mesh-blob-2"></div>
+    <div class="mesh-blob mesh-blob-3"></div>
+  </div>
+  <canvas id="grid-canvas" aria-hidden="true"></canvas>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="../index.html" class="logo-badge neo" aria-label="Home">PP</a>
+      <a href="../index.html#projects" class="back-link"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> All Projects</a>
+    </div>
+    <a href="https://github.com/Pd-Patel-dev" class="btn-glass" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+  </header>
+
+  <main class="page-wrap detail-page" id="main">
+    <header class="detail-hero">
+      <div class="detail-hero-glow" aria-hidden="true"></div>
+      <figure class="detail-hero-preview">
+        <img
+          src="../assets/projects/email-tracker.jpg"
+          srcset="../assets/projects/email-tracker-thumb.png 640w, ../assets/projects/email-tracker.jpg 1200w"
+          sizes="(max-width: 768px) 100vw,  min(1100px, 92vw)"
+          alt="Email Tracker dashboard preview"
+          width="1200"
+          height="750"
+          loading="eager"
+          decoding="async"
+        >
+      </figure>
+      <span class="detail-badge badge-ai">AI/ML Pipeline</span>
+      <div class="detail-meta-row">
+        <span class="detail-meta-pill"><i class="fa-solid fa-calendar" aria-hidden="true"></i> 2025</span>
+        <span class="detail-meta-pill"><i class="fa-solid fa-user" aria-hidden="true"></i> Solo · Full-Stack</span>
+        <span class="detail-meta-pill"><i class="fa-solid fa-brain" aria-hidden="true"></i> BERT · ONNX · FastAPI</span>
+      </div>
+      <h1>AI-Powered Job Application Email Tracker</h1>
+      <p class="lead">A production-grade 3-stage classification pipeline that routes Gmail job-application threads through rules, fine-tuned BERT, and LLM fallback — optimized for precision, latency, and cost.</p>
+      <div class="detail-actions">
+        <a href="https://github.com/Pd-Patel-dev" class="btn-primary" target="_blank" rel="noopener noreferrer">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        <a href="../index.html#contact" class="btn-glass">Discuss this project</a>
+      </div>
+      <div class="detail-quick-stats">
+        <div class="card-scene quick-stat detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <div class="value" data-count="91" data-suffix="%">0%</div>
+            <div class="label">Precision</div>
+          </div></div>
+        </div>
+        <div class="card-scene quick-stat detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <div class="value" data-count="10" data-suffix="K+">0</div>
+            <div class="label">Labeled samples</div>
+          </div></div>
+        </div>
+        <div class="card-scene quick-stat detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <div class="value" data-count="3" data-suffix="×">0×</div>
+            <div class="label">Faster (ONNX)</div>
+          </div></div>
+        </div>
+        <div class="card-scene quick-stat detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <div class="value" data-prefix="&lt;" data-count="500" data-suffix="ms">&lt;500ms</div>
+            <div class="label">API p95 latency</div>
+          </div></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="detail-body">
+      <div class="detail-main">
+        <nav class="detail-tabs glass" role="tablist" aria-label="Project sections">
+          <button type="button" class="detail-tab active" role="tab" aria-selected="true" data-panel="panel-overview"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>Overview</button>
+          <button type="button" class="detail-tab" role="tab" aria-selected="false" data-panel="panel-arch"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i>Architecture</button>
+          <button type="button" class="detail-tab" role="tab" aria-selected="false" data-panel="panel-pipeline"><i class="fa-solid fa-layer-group" aria-hidden="true"></i>ML Pipeline</button>
+          <button type="button" class="detail-tab" role="tab" aria-selected="false" data-panel="panel-outcomes"><i class="fa-solid fa-chart-line" aria-hidden="true"></i>Outcomes</button>
+        </nav>
+
+        <div id="panel-overview" class="detail-panel active" role="tabpanel">
+          <div class="ps-grid detail-reveal">
+            <div class="ps-block problem glass">
+              <h3><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Problem</h3>
+              <p>Job seekers receive hundreds of mixed emails — applications, rejections, interviews, and spam — with no reliable way to triage what matters without manual sorting every day.</p>
+            </div>
+            <div class="ps-block solution glass">
+              <h3><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Solution</h3>
+              <p>An automated Gmail-connected system that classifies threads in milliseconds, escalates only uncertain cases to heavier models, and surfaces a clean dashboard for application status.</p>
+            </div>
+          </div>
+          <div class="card-scene detail-card-scene detail-reveal">
+            <article class="card-3d detail-card">
+              <div class="card-3d-floor"></div>
+              <div class="card-3d-rim"></div>
+              <div class="card-3d-shine"></div>
+              <div class="card-3d-surface">
+                <h2><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Project goals</h2>
+                <p>Balance accuracy, inference cost, and response time. Rule-based filters handle obvious cases instantly; BERT handles semantic nuance; LLM catches long-tail edge cases only when confidence drops below threshold.</p>
+                <ul class="detail-list">
+                  <li>Reduce false positives 30–40% versus rules-only baseline</li>
+                  <li>Support 50+ concurrent API users with sub-500ms responses</li>
+                  <li>Export ONNX models for 3× faster CPU inference in production</li>
+                  <li>Maintain auditable confidence scores per classification stage</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="feature-grid">
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-brands fa-google" aria-hidden="true"></i>
+              <h3>Gmail integration</h3>
+              <p>OAuth2 sync with incremental fetch, thread-level grouping, and preprocessing for HTML stripping and token normalization.</p>
+            </div>
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
+              <h3>Confidence routing</h3>
+              <p>Each stage emits a score; only low-confidence items escalate — keeping LLM API costs predictable.</p>
+            </div>
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
+              <h3>Analytics dashboard</h3>
+              <p>Track application funnel, response rates, and model drift with filters by company and date range.</p>
+            </div>
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+              <h3>Safe fallbacks</h3>
+              <p>Graceful degradation when Gmail quota or model endpoints fail; queue retries with exponential backoff.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="panel-arch" class="detail-panel" role="tabpanel" hidden>
+          <div class="card-scene detail-card-scene detail-reveal">
+            <article class="card-3d detail-card">
+              <div class="card-3d-floor"></div>
+              <div class="card-3d-rim"></div>
+              <div class="card-3d-shine"></div>
+              <div class="card-3d-surface">
+                <h2><i class="fa-solid fa-sitemap" aria-hidden="true"></i> System flow</h2>
+                <div class="arch-flow">
+                  <div class="arch-node"><i class="fa-brands fa-google"></i><div><strong>Gmail API</strong><span>OAuth2 · thread sync · rate-limit aware</span></div></div>
+                  <div class="arch-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                  <div class="arch-node"><i class="fa-solid fa-filter"></i><div><strong>Preprocessor</strong><span>HTML strip · dedupe · feature extraction</span></div></div>
+                  <div class="arch-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                  <div class="arch-node"><i class="fa-solid fa-brain"></i><div><strong>Classifier service</strong><span>Rules → BERT → LLM · FastAPI · ONNX runtime</span></div></div>
+                  <div class="arch-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                  <div class="arch-node"><i class="fa-solid fa-database"></i><div><strong>PostgreSQL + cache</strong><span>Labels · audit log · metrics</span></div></div>
+                  <div class="arch-arrow"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></div>
+                  <div class="arch-node"><i class="fa-solid fa-desktop"></i><div><strong>React dashboard</strong><span>Status boards · filters · export</span></div></div>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="detail-split">
+            <div class="card-scene detail-card-scene detail-reveal">
+              <article class="card-3d detail-card"><div class="card-3d-surface">
+                <h2><i class="fa-solid fa-server" aria-hidden="true"></i> Backend</h2>
+                <p>FastAPI with async workers, structured logging, and health checks. ONNX Runtime serves quantized BERT for batch and single inference paths.</p>
+              </div></article>
+            </div>
+            <div class="card-scene detail-card-scene detail-reveal">
+              <article class="card-3d detail-card"><div class="card-3d-surface">
+                <h2><i class="fa-solid fa-palette" aria-hidden="true"></i> Frontend</h2>
+                <p>React SPA with optimistic UI, skeleton loaders, and accessible status chips. API client handles pagination and real-time poll for sync jobs.</p>
+              </div></article>
+            </div>
+          </div>
+        </div>
+
+        <div id="panel-pipeline" class="detail-panel" role="tabpanel" hidden>
+          <div class="card-scene detail-card-scene detail-reveal">
+            <article class="card-3d detail-card pipeline-wrap">
+              <div class="card-3d-floor"></div>
+              <div class="card-3d-rim"></div>
+              <div class="card-3d-shine"></div>
+              <div class="card-3d-surface">
+                <h2><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Interactive pipeline</h2>
+                <p style="margin-bottom:1.25rem;color:var(--text-muted);font-size:var(--text-sm);">Click each stage to see how emails are processed.</p>
+                <div class="pipeline-steps">
+                  <button type="button" class="pipeline-step active" data-detail="Stage 1 applies regex and keyword rules for senders like Greenhouse, Lever, and LinkedIn. Matches return instantly with 99%+ confidence — zero model cost. Handles ~45% of volume.">
+                    <span class="pipeline-num">01</span>
+                    <div><h3>Rule engine</h3><p>Instant classification for known patterns</p></div>
+                  </button>
+                  <button type="button" class="pipeline-step" data-detail="Stage 2 runs fine-tuned BERT (12-layer) on subject + body embeddings. Trained on 10K+ hand-labeled samples. ONNX int8 quantization cuts inference from ~120ms to ~40ms per email on CPU.">
+                    <span class="pipeline-num">02</span>
+                    <div><h3>BERT classifier</h3><p>Semantic understanding · 91% precision</p></div>
+                  </button>
+                  <button type="button" class="pipeline-step" data-detail="Stage 3 sends only emails below 0.72 confidence to an LLM with a strict JSON schema. Structured output maps to application / interview / rejection / other. Capped at 8% of total volume to control cost.">
+                    <span class="pipeline-num">03</span>
+                    <div><h3>LLM fallback</h3><p>Edge cases · schema-validated responses</p></div>
+                  </button>
+                </div>
+                <div class="pipeline-detail" id="pipeline-detail-text">Stage 1 applies regex and keyword rules for senders like Greenhouse, Lever, and LinkedIn. Matches return instantly with 99%+ confidence — zero model cost. Handles ~45% of volume.</div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div id="panel-outcomes" class="detail-panel" role="tabpanel" hidden>
+          <div class="card-scene detail-card-scene detail-reveal">
+            <article class="card-3d detail-card">
+              <div class="card-3d-surface">
+                <h2><i class="fa-solid fa-trophy" aria-hidden="true"></i> Measurable impact</h2>
+                <ul class="detail-list">
+                  <li><strong>91% precision</strong> on held-out test set across 12 application categories</li>
+                  <li><strong>30–40% fewer false positives</strong> vs. rules-only — users trust the inbox again</li>
+                  <li><strong>3× inference speedup</strong> after ONNX quantization without meaningful accuracy loss</li>
+                  <li><strong>&lt;500ms p95</strong> API latency under load tests simulating 50 concurrent users</li>
+                  <li><strong>~55% cost reduction</strong> on LLM calls by routing most traffic through rules + BERT</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <nav class="detail-pager" aria-label="Other projects">
+          <a href="waypool.html" class="pager-link"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Waypool</a>
+          <a href="clockinn.html" class="pager-link">Next: ClockInn-Pro <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </nav>
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="card-scene sidebar-card">
+          <div class="card-3d"><div class="card-3d-surface">
+            <h3>Impact metrics</h3>
+            <div class="metric-row"><span>Precision</span><strong>91%</strong></div>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:91%"></div></div>
+            <div class="metric-row"><span>FP reduction</span><strong>−35%</strong></div>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:85%"></div></div>
+            <div class="metric-row"><span>ONNX speedup</span><strong>3×</strong></div>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:100%"></div></div>
+            <div class="metric-row"><span>Latency p95</span><strong>&lt;500ms</strong></div>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:88%"></div></div>
+          </div></div>
+        </div>
+        <div class="card-scene sidebar-card">
+          <div class="card-3d"><div class="card-3d-surface">
+            <h3>Tech stack</h3>
+            <div class="stack-list">
+              <span class="stack-chip">Python</span>
+              <span class="stack-chip">FastAPI</span>
+              <span class="stack-chip">React</span>
+              <span class="stack-chip">BERT</span>
+              <span class="stack-chip">ONNX</span>
+              <span class="stack-chip">Gmail API</span>
+              <span class="stack-chip">PostgreSQL</span>
+              <span class="stack-chip">Hugging Face</span>
+            </div>
+          </div></div>
+        </div>
+        <div class="card-scene sidebar-card">
+          <div class="card-3d"><div class="card-3d-surface">
+            <h3>On this page</h3>
+            <nav class="sidebar-nav">
+              <a href="#" data-panel="panel-overview"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Overview</a>
+              <a href="#" data-panel="panel-arch"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Architecture</a>
+              <a href="#" data-panel="panel-pipeline"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> ML Pipeline</a>
+              <a href="#" data-panel="panel-outcomes"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Outcomes</a>
+            </nav>
+          </div></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="../js/grid-canvas.js"></script>
+  <script src="../js/particles.js"></script>
+  <script src="../js/spotlight.js"></script>
+  <script src="../js/cards-3d.js"></script>
+  <script src="../js/project-detail.js"></script>
+</body>
+</html>

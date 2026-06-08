@@ -1,0 +1,327 @@
+/* Hero portrait — 3D depth portal (single image, no duplicates) */
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(280px, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-copy {
+  min-width: 0;
+}
+
+.hero-portrait-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  perspective: 1100px;
+  -webkit-perspective: 1100px;
+  perspective-origin: 50% 42%;
+}
+
+.hero-portrait--3d {
+  position: relative;
+  width: 100%;
+  max-width: min(580px, 52vw);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-portrait.visible {
+  opacity: 1;
+  transform: translateY(var(--float-y, 0));
+  transition-delay: 0.12s;
+}
+
+/* 3D scene root */
+.portrait-depth {
+  position: relative;
+  width: 100%;
+  min-height: min(72vh, 560px);
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform: rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 0.12s ease-out;
+  will-change: transform;
+}
+
+/* Back glow — deepest layer */
+.portrait-aurora {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: 90%;
+  height: 70%;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(139, 92, 246, 0.4) 0%,
+    rgba(56, 189, 248, 0.18) 45%,
+    transparent 72%
+  );
+  filter: blur(40px);
+  transform: translate3d(
+    calc(-50% + var(--aura-x, 0px)),
+    calc(-50% + var(--aura-y, 0px)),
+    -120px
+  );
+}
+
+/* Contact shadow on floor */
+.portrait-shadow-floor {
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  width: 50%;
+  height: 28px;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(0, 0, 0, 0.55) 0%, transparent 72%);
+  transform: translate3d(calc(-50% + var(--shadow-x, 0px)), 0, -35px) scaleX(var(--shadow-scale, 1));
+  filter: blur(8px);
+  transition: transform 0.12s ease-out;
+}
+
+/* Glass pedestal under feet */
+.portrait-pedestal {
+  position: absolute;
+  left: 50%;
+  bottom: 6%;
+  width: 58%;
+  height: 72px;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(139, 92, 246, 0.35) 0%,
+    rgba(56, 189, 248, 0.12) 50%,
+    transparent 72%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 40px rgba(139, 92, 246, 0.25),
+    inset 0 0 30px rgba(255, 255, 255, 0.04);
+  transform: translate3d(-50%, 0, -20px) rotateX(82deg);
+  filter: blur(0.5px);
+}
+
+/* Photo — front layer */
+.portrait-stage {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  transform: translate3d(var(--img-shift-x, 0), calc(var(--img-lift, 0px)), 110px)
+    rotateX(var(--img-tilt-x, 0deg))
+    rotateY(var(--img-tilt-y, 0deg));
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transition: transform 0.12s ease-out;
+}
+
+.portrait-img-3d {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform: translateZ(24px);
+}
+
+/* Subtle foot-level glow only (no neck rings) */
+.portrait-edge-glow {
+  position: absolute;
+  left: 50%;
+  bottom: 2%;
+  width: 45%;
+  height: 18%;
+  transform: translateX(-50%) translateZ(-2px);
+  pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(56, 189, 248, 0.35), transparent 70%);
+  filter: blur(12px);
+  opacity: 0.5;
+}
+
+/* Light sweep across silhouette */
+.portrait-light-sweep {
+  position: absolute;
+  inset: 5% 15% 8%;
+  z-index: 2;
+  pointer-events: none;
+  border-radius: 40%;
+  background: linear-gradient(
+    115deg,
+    transparent 42%,
+    rgba(255, 255, 255, 0.14) 50%,
+    transparent 58%
+  );
+  transform: translateX(-130%) skewX(-10deg);
+  animation: portraitSweep 5s ease-in-out infinite;
+  mix-blend-mode: soft-light;
+}
+
+@keyframes portraitSweep {
+  0%, 65% { transform: translateX(-130%) skewX(-10deg); opacity: 0; }
+  75% { opacity: 1; }
+  100% { transform: translateX(130%) skewX(-10deg); opacity: 0; }
+}
+
+.hero-portrait-img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: min(75vh, 620px);
+  margin: 0 auto;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 32px 55px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35))
+    drop-shadow(0 0 50px rgba(139, 92, 246, 0.28));
+  transition: filter 0.35s ease;
+}
+
+.portrait-stage:hover .hero-portrait-img {
+  filter: drop-shadow(0 32px 60px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 0 80px rgba(56, 189, 248, 0.35));
+}
+
+.portrait-status {
+  position: relative;
+  z-index: 10;
+  margin: 0.75rem auto 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e2e8f0;
+  background: #12121a;
+  opacity: 1;
+  border: 1px solid rgba(167, 139, 250, 0.45);
+  box-shadow:
+    0 4px 0 rgba(0, 0, 0, 0.35),
+    0 10px 28px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  white-space: nowrap;
+}
+
+.portrait-status .pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.7);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.85); }
+}
+
+@media (min-width: 901px) {
+  #hero {
+    text-align: left;
+  }
+
+  .hero-copy .hero-inner {
+    max-width: none;
+    margin: 0;
+  }
+
+  .hero-copy .hero-role-tag,
+  .hero-copy #hero-badge-wrap {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .hero-copy #hero-badge-wrap {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+
+  .hero-copy .hero-bio,
+  .hero-copy .hero-stack {
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: flex-start;
+  }
+
+  .hero-copy .hero-ctas,
+  .hero-copy .hero-socials {
+    justify-content: flex-start;
+  }
+
+  .hero-copy .hero-name {
+    text-align: left;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .hero-portrait-col {
+    order: -1;
+    perspective: 1000px;
+  }
+
+  .hero-portrait--3d {
+    max-width: min(340px, 88vw);
+  }
+
+  .portrait-depth {
+    min-height: min(50vh, 400px);
+  }
+
+  .hero-portrait-img {
+    max-height: min(48vh, 380px);
+  }
+
+  .portrait-stage {
+    transform: translate3d(0, var(--img-lift, 0px), 60px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-edge-glow,
+  .portrait-light-sweep {
+    animation: none !important;
+  }
+
+  .hero-portrait--3d {
+    opacity: 1;
+    transform: none;
+  }
+
+  .portrait-depth {
+    transform: none;
+  }
+}
+
