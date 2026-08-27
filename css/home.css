@@ -354,6 +354,35 @@
 }
 .about-text p strong { color: var(--text-primary); font-weight: 600; }
 
+.about-skills {
+  margin: 1.35rem 0 0.25rem;
+}
+
+.about-skills-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.75rem !important;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-violet-light);
+}
+
+.about-skills-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.about-skills-tags .exp-tag {
+  color: var(--text-secondary);
+  background: rgba(139, 92, 246, 0.1);
+  border-color: rgba(139, 92, 246, 0.28);
+}
+
 .badges-row {
   display: flex;
   flex-wrap: wrap;

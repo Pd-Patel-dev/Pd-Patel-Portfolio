@@ -24,8 +24,8 @@
       html: '  <span class="json-key">"name"</span>: <span class="json-str">"Pradhuman Patel"</span>,',
     },
     {
-      plain: '  "role": "Frontend + Full-Stack Engineer",',
-      html: '  <span class="json-key">"role"</span>: <span class="json-str">"Frontend + Full-Stack Engineer"</span>,',
+      plain: '  "role": "AI + Software Engineer",',
+      html: '  <span class="json-key">"role"</span>: <span class="json-str">"AI + Software Engineer"</span>,',
     },
     {
       plain: '  "education": "UIC CS, May 2027",',
@@ -40,12 +40,12 @@
       html: '  <span class="json-key">"apps_shipped"</span>: <span class="json-num">3</span>,',
     },
     {
-      plain: '  "workflows_automated": "60-80%",',
-      html: '  <span class="json-key">"workflows_automated"</span>: <span class="json-str">"60–80%"</span>,',
+      plain: '  "emails_labeled": 1500,',
+      html: '  <span class="json-key">"emails_labeled"</span>: <span class="json-num">1500</span>,',
     },
     {
-      plain: '  "seeking": "SWE / AI Engineer Role"',
-      html: '  <span class="json-key">"seeking"</span>: <span class="json-str">"SWE / AI Engineer Role"</span>',
+      plain: '  "seeking": "Entry-level AI / SWE Role"',
+      html: '  <span class="json-key">"seeking"</span>: <span class="json-str">"Entry-level AI / SWE Role"</span>',
     },
     { plain: '}', html: '<span class="json-bracket">}</span>' },
   ];

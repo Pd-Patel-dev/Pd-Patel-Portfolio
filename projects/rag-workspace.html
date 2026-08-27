@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAG Workspace | Pradhuman Patel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/glass.css">
+  <link rel="stylesheet" href="../css/typography.css">
+  <link rel="stylesheet" href="../css/effects.css">
+  <link rel="stylesheet" href="../css/project-detail.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <div class="mesh-bg" aria-hidden="true">
+    <div class="mesh-blob mesh-blob-1"></div>
+    <div class="mesh-blob mesh-blob-2"></div>
+    <div class="mesh-blob mesh-blob-3"></div>
+  </div>
+  <canvas id="grid-canvas" aria-hidden="true"></canvas>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-left">
+      <a href="../index.html" class="logo-badge neo" aria-label="Home">PD</a>
+      <a href="../index.html#projects" class="back-link"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> All Projects</a>
+    </div>
+    <a href="https://github.com/Pd-Patel-dev" class="btn-glass" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> GitHub</a>
+  </header>
+
+  <main class="page-wrap detail-page" id="main">
+    <header class="detail-hero">
+      <div class="detail-hero-glow" aria-hidden="true"></div>
+      <figure class="detail-hero-preview">
+        <img
+          src="../assets/projects/rag-workspace.png"
+          srcset="../assets/projects/rag-workspace-thumb.png 640w, ../assets/projects/rag-workspace.png 1200w"
+          sizes="(max-width: 768px) 100vw, min(1100px, 92vw)"
+          alt="RAG Workspace — documents dashboard with upload and indexed files"
+          width="1200"
+          height="750"
+          loading="eager"
+          decoding="async"
+        >
+      </figure>
+      <span class="detail-badge badge-ai">RAG · Full-Stack</span>
+      <div class="detail-meta-row">
+        <span class="detail-meta-pill"><i class="fa-solid fa-calendar" aria-hidden="true"></i> Aug 2026 – Present</span>
+        <span class="detail-meta-pill"><i class="fa-solid fa-user" aria-hidden="true"></i> Solo · Full-Stack</span>
+        <span class="detail-meta-pill"><i class="fa-solid fa-brain" aria-hidden="true"></i> FAISS · Hugging Face · FastAPI</span>
+      </div>
+      <h1>RAG Workspace</h1>
+      <p class="lead">A document question-answering app where users upload files and ask questions about their own documents using Retrieval-Augmented Generation, FAISS, Hugging Face embeddings, FastAPI, React, and PostgreSQL.</p>
+      <div class="detail-actions">
+        <a href="https://github.com/Pd-Patel-dev" class="btn-primary" target="_blank" rel="noopener noreferrer">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+        <a href="../index.html#contact" class="btn-glass">Discuss this project</a>
+      </div>
+      <div class="detail-quick-stats">
+        <div class="card-scene quick-stat detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <div class="value">Hybrid</div>
+            <div class="label">Vector + keyword retrieval</div>
+          </div></div>
+        </div>
+        <div class="card-scene quick-stat detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <div class="value">Per-user</div>
+            <div class="label">Isolated FAISS indexes</div>
+          </div></div>
+        </div>
+        <div class="card-scene quick-stat detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <div class="value">JWT</div>
+            <div class="label">Auth · caching · retries</div>
+          </div></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="detail-body">
+      <div class="detail-main">
+        <nav class="detail-tabs glass" role="tablist" aria-label="Project sections">
+          <button type="button" class="detail-tab active" role="tab" aria-selected="true" data-panel="panel-overview"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>Overview</button>
+          <button type="button" class="detail-tab" role="tab" aria-selected="false" data-panel="panel-retrieval"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>Retrieval</button>
+          <button type="button" class="detail-tab" role="tab" aria-selected="false" data-panel="panel-reliability"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i>Reliability</button>
+        </nav>
+
+        <div id="panel-overview" class="detail-panel active" role="tabpanel">
+          <div class="ps-grid detail-reveal">
+            <div class="ps-block problem glass">
+              <h3><i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Problem</h3>
+              <p>Users need trustworthy answers grounded in their own uploaded documents — not generic LLM output — with clear sources and secure multi-user isolation.</p>
+            </div>
+            <div class="ps-block solution glass">
+              <h3><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Solution</h3>
+              <p>A full-stack RAG workspace: upload documents, embed with Hugging Face models, retrieve via FAISS hybrid search, and answer with cited context through a FastAPI + React stack backed by PostgreSQL.</p>
+            </div>
+          </div>
+          <div class="card-scene detail-card-scene detail-reveal">
+            <article class="card-3d detail-card">
+              <div class="card-3d-floor"></div>
+              <div class="card-3d-rim"></div>
+              <div class="card-3d-shine"></div>
+              <div class="card-3d-surface">
+                <h2><i class="fa-solid fa-bullseye" aria-hidden="true"></i> What I built</h2>
+                <ul class="detail-list">
+                  <li>Document Q&amp;A app for uploading files and asking questions over personal corpora using RAG</li>
+                  <li>Stack: Python, FastAPI, React, TypeScript, PostgreSQL, FAISS, and Hugging Face embeddings</li>
+                  <li>Source citations so answers stay grounded in retrieved document chunks</li>
+                  <li>Separate FAISS indexes per user for secure, isolated retrieval</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="feature-grid">
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-solid fa-file-arrow-up" aria-hidden="true"></i>
+              <h3>Document upload</h3>
+              <p>Users upload files and query their own documents through a React TypeScript frontend.</p>
+            </div>
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-solid fa-vector-square" aria-hidden="true"></i>
+              <h3>Embeddings</h3>
+              <p>Hugging Face embeddings feed FAISS indexes for semantic retrieval over chunked content.</p>
+            </div>
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-solid fa-quote-left" aria-hidden="true"></i>
+              <h3>Source citations</h3>
+              <p>Answers surface the document context used so users can verify claims.</p>
+            </div>
+            <div class="feature-item glass detail-reveal">
+              <i class="fa-solid fa-database" aria-hidden="true"></i>
+              <h3>PostgreSQL</h3>
+              <p>Persistent metadata, auth, and app state alongside vector indexes.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="panel-retrieval" class="detail-panel" role="tabpanel" hidden>
+          <div class="card-scene detail-card-scene detail-reveal">
+            <article class="card-3d detail-card">
+              <div class="card-3d-floor"></div>
+              <div class="card-3d-rim"></div>
+              <div class="card-3d-shine"></div>
+              <div class="card-3d-surface">
+                <h2><i class="fa-solid fa-layer-group" aria-hidden="true"></i> Hybrid retrieval pipeline</h2>
+                <p>Built a retrieval system that combines multiple strategies to surface useful information from uploaded documents:</p>
+                <ul class="detail-list">
+                  <li>Vector search over FAISS embeddings for semantic matches</li>
+                  <li>Keyword search for exact term and entity hits</li>
+                  <li>Query expansion and multi-query search to broaden recall</li>
+                  <li>Result ranking and context filtering before generation</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div id="panel-reliability" class="detail-panel" role="tabpanel" hidden>
+          <div class="card-scene detail-card-scene detail-reveal">
+            <article class="card-3d detail-card">
+              <div class="card-3d-floor"></div>
+              <div class="card-3d-rim"></div>
+              <div class="card-3d-shine"></div>
+              <div class="card-3d-surface">
+                <h2><i class="fa-solid fa-lock" aria-hidden="true"></i> Security &amp; reliability</h2>
+                <ul class="detail-list">
+                  <li>JWT authentication for protected document and query APIs</li>
+                  <li>Separate FAISS indexes per user to keep corpora isolated</li>
+                  <li>Caching and retry handling for resilient retrieval and generation</li>
+                  <li>Health monitoring to track service readiness and failures</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <aside class="detail-sidebar">
+        <div class="card-scene sidebar-card detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <h3>Tech stack</h3>
+            <div class="stack-list">
+              <span class="stack-chip">Python</span>
+              <span class="stack-chip">FastAPI</span>
+              <span class="stack-chip">React</span>
+              <span class="stack-chip">TypeScript</span>
+              <span class="stack-chip">PostgreSQL</span>
+              <span class="stack-chip">FAISS</span>
+              <span class="stack-chip">Hugging Face</span>
+              <span class="stack-chip">JWT</span>
+            </div>
+          </div></div>
+        </div>
+        <div class="card-scene sidebar-card detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <h3>Timeline</h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">August 2026 – Present</p>
+          </div></div>
+        </div>
+        <div class="card-scene sidebar-card detail-reveal">
+          <div class="card-3d"><div class="card-3d-surface">
+            <h3>Navigate</h3>
+            <nav class="sidebar-nav">
+              <a href="../index.html#projects"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> All projects</a>
+              <a href="../index.html#contact"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact</a>
+            </nav>
+          </div></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="../js/grid-canvas.js"></script>
+  <script src="../js/project-detail.js"></script>
+</body>
+</html>

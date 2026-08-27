@@ -47,14 +47,14 @@
           decoding="async"
         >
       </figure>
-      <span class="detail-badge badge-ai">AI/ML Pipeline</span>
+      <span class="detail-badge badge-ai">NLP · ML Classifier</span>
       <div class="detail-meta-row">
-        <span class="detail-meta-pill"><i class="fa-solid fa-calendar" aria-hidden="true"></i> 2025</span>
-        <span class="detail-meta-pill"><i class="fa-solid fa-user" aria-hidden="true"></i> Solo · Full-Stack</span>
-        <span class="detail-meta-pill"><i class="fa-solid fa-brain" aria-hidden="true"></i> BERT · ONNX · FastAPI</span>
+        <span class="detail-meta-pill"><i class="fa-solid fa-calendar" aria-hidden="true"></i> Jan 2026 – May 2026</span>
+        <span class="detail-meta-pill"><i class="fa-solid fa-user" aria-hidden="true"></i> Solo · ML</span>
+        <span class="detail-meta-pill"><i class="fa-solid fa-brain" aria-hidden="true"></i> scikit-learn · TF-IDF · NLP</span>
       </div>
-      <h1>AI-Powered Job Application Email Tracker</h1>
-      <p class="lead">A production-grade 3-stage classification pipeline that routes Gmail job-application threads through rules, fine-tuned BERT, and LLM fallback — optimized for precision, latency, and cost.</p>
+      <h1>Job Application Email Classifier</h1>
+      <p class="lead">An NLP email classifier built with Python, scikit-learn, and TF-IDF that sorts job-related emails into 6 categories — applications, assessments, interviews, offers, and rejections — trained and evaluated on a custom 1,500-email dataset.</p>
       <div class="detail-actions">
         <a href="https://github.com/Pd-Patel-dev" class="btn-primary" target="_blank" rel="noopener noreferrer">View on GitHub <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
         <a href="../index.html#contact" class="btn-glass">Discuss this project</a>
@@ -62,26 +62,26 @@
       <div class="detail-quick-stats">
         <div class="card-scene quick-stat detail-reveal">
           <div class="card-3d"><div class="card-3d-surface">
-            <div class="value" data-count="91" data-suffix="%">0%</div>
-            <div class="label">Precision</div>
+            <div class="value" data-count="1500" data-suffix="+">0</div>
+            <div class="label">Training emails</div>
           </div></div>
         </div>
         <div class="card-scene quick-stat detail-reveal">
           <div class="card-3d"><div class="card-3d-surface">
-            <div class="value" data-count="10" data-suffix="K+">0</div>
-            <div class="label">Labeled samples</div>
+            <div class="value" data-count="6" data-suffix="">0</div>
+            <div class="label">Categories</div>
           </div></div>
         </div>
         <div class="card-scene quick-stat detail-reveal">
           <div class="card-3d"><div class="card-3d-surface">
-            <div class="value" data-count="3" data-suffix="×">0×</div>
-            <div class="label">Faster (ONNX)</div>
+            <div class="value" data-count="5" data-suffix="-fold">0</div>
+            <div class="label">Cross-validation</div>
           </div></div>
         </div>
         <div class="card-scene quick-stat detail-reveal">
           <div class="card-3d"><div class="card-3d-surface">
-            <div class="value" data-prefix="&lt;" data-count="500" data-suffix="ms">&lt;500ms</div>
-            <div class="label">API p95 latency</div>
+            <div class="value">80/20</div>
+            <div class="label">Train / validation split</div>
           </div></div>
         </div>
       </div>
@@ -104,7 +104,7 @@
             </div>
             <div class="ps-block solution glass">
               <h3><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Solution</h3>
-              <p>An automated Gmail-connected system that classifies threads in milliseconds, escalates only uncertain cases to heavier models, and surfaces a clean dashboard for application status.</p>
+              <p>A classical NLP pipeline using TF-IDF features and scikit-learn models (Logistic Regression, Linear SVM, Naive Bayes) trained on 1,500 realistic recruiting emails and selected with macro F1 via 5-fold cross-validation.</p>
             </div>
           </div>
           <div class="card-scene detail-card-scene detail-reveal">
@@ -114,12 +114,12 @@
               <div class="card-3d-shine"></div>
               <div class="card-3d-surface">
                 <h2><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Project goals</h2>
-                <p>Balance accuracy, inference cost, and response time. Rule-based filters handle obvious cases instantly; BERT handles semantic nuance; LLM catches long-tail edge cases only when confidence drops below threshold.</p>
+                <p>Build a reliable, interpretable email classifier for job-search workflows using entry-level ML practices — clean data, clear evaluation, and model comparison.</p>
                 <ul class="detail-list">
-                  <li>Reduce false positives 30–40% versus rules-only baseline</li>
-                  <li>Support 50+ concurrent API users with sub-500ms responses</li>
-                  <li>Export ONNX models for 3× faster CPU inference in production</li>
-                  <li>Maintain auditable confidence scores per classification stage</li>
+                  <li>Sort emails into 6 categories: applications, assessments, interviews, offers, rejections, and related status</li>
+                  <li>Create a 1,500-email dataset spanning companies, roles, subjects, formats, and reply patterns</li>
+                  <li>Compare Logistic Regression, Linear SVM, and Naive Bayes with an 80/20 split and 5-fold CV</li>
+                  <li>Select the best model using macro F1 score and persist it with Joblib</li>
                 </ul>
               </div>
             </article>
@@ -221,11 +221,11 @@
               <div class="card-3d-surface">
                 <h2><i class="fa-solid fa-trophy" aria-hidden="true"></i> Measurable impact</h2>
                 <ul class="detail-list">
-                  <li><strong>91% precision</strong> on held-out test set across 12 application categories</li>
-                  <li><strong>30–40% fewer false positives</strong> vs. rules-only — users trust the inbox again</li>
-                  <li><strong>3× inference speedup</strong> after ONNX quantization without meaningful accuracy loss</li>
-                  <li><strong>&lt;500ms p95</strong> API latency under load tests simulating 50 concurrent users</li>
-                  <li><strong>~55% cost reduction</strong> on LLM calls by routing most traffic through rules + BERT</li>
+                  <li><strong>1,500 training emails</strong> spanning companies, roles, subjects, formats, and reply patterns</li>
+                  <li><strong>6 categories</strong> covering applications, assessments, interviews, offers, rejections, and related status</li>
+                  <li><strong>80/20 train–validation split</strong> with <strong>5-fold cross-validation</strong> for robust model selection</li>
+                  <li><strong>Model comparison</strong> across Logistic Regression, Linear SVM, and Naive Bayes using macro F1</li>
+                  <li><strong>Joblib persistence</strong> for the best-performing classifier in reuse and evaluation</li>
                 </ul>
               </div>
             </article>
@@ -242,14 +242,14 @@
         <div class="card-scene sidebar-card">
           <div class="card-3d"><div class="card-3d-surface">
             <h3>Impact metrics</h3>
-            <div class="metric-row"><span>Precision</span><strong>91%</strong></div>
-            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:91%"></div></div>
-            <div class="metric-row"><span>FP reduction</span><strong>−35%</strong></div>
-            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:85%"></div></div>
-            <div class="metric-row"><span>ONNX speedup</span><strong>3×</strong></div>
+            <div class="metric-row"><span>Training emails</span><strong>1,500</strong></div>
             <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:100%"></div></div>
-            <div class="metric-row"><span>Latency p95</span><strong>&lt;500ms</strong></div>
-            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:88%"></div></div>
+            <div class="metric-row"><span>Categories</span><strong>6</strong></div>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:85%"></div></div>
+            <div class="metric-row"><span>CV folds</span><strong>5</strong></div>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:90%"></div></div>
+            <div class="metric-row"><span>Train / val</span><strong>80/20</strong></div>
+            <div class="metric-bar-wrap"><div class="metric-bar" style="--bar:80%"></div></div>
           </div></div>
         </div>
         <div class="card-scene sidebar-card">
@@ -257,13 +257,11 @@
             <h3>Tech stack</h3>
             <div class="stack-list">
               <span class="stack-chip">Python</span>
-              <span class="stack-chip">FastAPI</span>
-              <span class="stack-chip">React</span>
-              <span class="stack-chip">BERT</span>
-              <span class="stack-chip">ONNX</span>
-              <span class="stack-chip">Gmail API</span>
-              <span class="stack-chip">PostgreSQL</span>
-              <span class="stack-chip">Hugging Face</span>
+              <span class="stack-chip">scikit-learn</span>
+              <span class="stack-chip">Pandas</span>
+              <span class="stack-chip">TF-IDF</span>
+              <span class="stack-chip">NLP</span>
+              <span class="stack-chip">Joblib</span>
             </div>
           </div></div>
         </div>

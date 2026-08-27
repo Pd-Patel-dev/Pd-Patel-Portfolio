@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none" role="img" aria-label="RAG Workspace document Q&amp;A preview">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <rect x="40" y="36" width="720" height="428" rx="16" fill="#0c1220" stroke="rgba(148,163,184,.2)"/>
+  <rect x="40" y="36" width="720" height="44" rx="16" fill="#111827"/>
+  <circle cx="68" cy="58" r="6" fill="#ff5f57"/><circle cx="88" cy="58" r="6" fill="#febc2e"/><circle cx="108" cy="58" r="6" fill="#28c840"/>
+  <rect x="160" y="50" width="220" height="16" rx="8" fill="rgba(148,163,184,.15)"/>
+  <rect x="56" y="96" width="200" height="340" rx="12" fill="rgba(15,23,42,.9)" stroke="rgba(148,163,184,.12)"/>
+  <rect x="72" y="116" width="120" height="10" rx="5" fill="rgba(148,163,184,.25)"/>
+  <rect x="72" y="148" width="168" height="48" rx="8" fill="rgba(139,92,246,.22)" stroke="rgba(167,139,250,.4)"/>
+  <rect x="84" y="162" width="90" height="8" rx="4" fill="#e2e8f0"/>
+  <rect x="84" y="176" width="60" height="6" rx="3" fill="rgba(148,163,184,.4)"/>
+  <rect x="72" y="212" width="168" height="48" rx="8" fill="rgba(56,189,248,.1)"/>
+  <rect x="84" y="226" width="100" height="8" rx="4" fill="rgba(226,232,240,.7)"/>
+  <rect x="72" y="276" width="168" height="48" rx="8" fill="rgba(56,189,248,.1)"/>
+  <rect x="84" y="290" width="80" height="8" rx="4" fill="rgba(226,232,240,.7)"/>
+  <rect x="276" y="96" width="468" height="340" rx="12" fill="rgba(15,23,42,.6)" stroke="rgba(148,163,184,.1)"/>
+  <text x="296" y="132" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="13" font-weight="600">Ask your documents</text>
+  <rect x="296" y="152" width="428" height="56" rx="12" fill="rgba(30,41,59,.9)" stroke="rgba(148,163,184,.2)"/>
+  <rect x="312" y="172" width="280" height="10" rx="5" fill="rgba(226,232,240,.55)"/>
+  <circle cx="692" cy="180" r="14" fill="url(#accent)"/>
+  <rect x="296" y="228" width="428" height="88" rx="12" fill="rgba(30,41,59,.75)" stroke="rgba(139,92,246,.25)"/>
+  <rect x="312" y="248" width="200" height="8" rx="4" fill="#e2e8f0"/>
+  <rect x="312" y="268" width="360" height="6" rx="3" fill="rgba(148,163,184,.35)"/>
+  <rect x="312" y="284" width="320" height="6" rx="3" fill="rgba(148,163,184,.25)"/>
+  <rect x="296" y="336" width="130" height="28" rx="8" fill="rgba(56,189,248,.15)" stroke="rgba(56,189,248,.4)"/>
+  <text x="316" y="354" fill="#7dd3fc" font-family="system-ui,sans-serif" font-size="11" font-weight="700">Source · p.4</text>
+  <rect x="438" y="336" width="130" height="28" rx="8" fill="rgba(139,92,246,.15)" stroke="rgba(167,139,250,.4)"/>
+  <text x="456" y="354" fill="#c4b5fd" font-family="system-ui,sans-serif" font-size="11" font-weight="700">Source · p.12</text>
+  <rect x="580" y="336" width="110" height="28" rx="8" fill="rgba(34,197,94,.12)" stroke="rgba(74,222,128,.4)"/>
+  <text x="598" y="354" fill="#86efac" font-family="system-ui,sans-serif" font-size="11" font-weight="700">FAISS hit</text>
+</svg>
